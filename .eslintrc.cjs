@@ -18,6 +18,9 @@ module.exports = {
       'error',
       'always-multiline',
     ],
+    '@stylistic/js/eol-last': [
+      'error',
+    ],
     '@stylistic/js/indent': [
       'error',
       2,

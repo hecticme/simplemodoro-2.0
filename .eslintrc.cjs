@@ -25,6 +25,9 @@ module.exports = {
     '@stylistic/js/no-tabs': [
       'error',
     ],
+    '@stylistic/js/no-trailing-spaces': [
+      'error',
+    ],
     '@stylistic/js/object-curly-spacing': [
       'error',
       'always',

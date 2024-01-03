@@ -21,6 +21,10 @@ module.exports = {
     '@stylistic/js/eol-last': [
       'error',
     ],
+    '@stylistic/js/function-call-spacing': [
+      'error',
+      'never',
+    ],
     '@stylistic/js/indent': [
       'error',
       2,

@@ -25,6 +25,10 @@ a:visited {
   text-decoration: none;
 }
 
+button {
+  border: none;
+}
+
 html:focus-within {
   scroll-behavior: smooth;
 }

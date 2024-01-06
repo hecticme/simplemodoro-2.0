@@ -1,10 +1,10 @@
 <script setup>
-import TheCountdown from './components/TheCountdown.vue';
+import ThePomodoro from './components/ThePomodoro.vue';
 </script>
 
 <template>
   <main class="app-container">
-    <TheCountdown />
+    <ThePomodoro />
   </main>
 </template>
 

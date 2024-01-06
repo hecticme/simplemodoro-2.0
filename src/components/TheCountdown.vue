@@ -12,5 +12,8 @@ const countdown = ref(25 * 60);
 </template>
 
 <style scoped>
-
+.countdown {
+  font-size: 4.5rem;
+  font-weight: 700;
+}
 </style>

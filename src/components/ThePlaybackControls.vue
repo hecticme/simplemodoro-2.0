@@ -66,7 +66,7 @@ function handleResumePause() {
   --playback-icon-size: 1.3rem;
 }
 
-.playback-button:is(:hover, :focus) {
+.playback-button:is(:hover, :focus-visible) {
   transform: translateY(-3px);
   color: var(--color-black);
   background-color: var(--color-white);

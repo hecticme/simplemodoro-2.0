@@ -10,7 +10,7 @@ function handleResumePause() {
 </script>
 
 <template>
-<div class="playback-controls">
+<section class="playback-controls">
   <button
     class="playback-button button-play"
     @click="handleResumePause"
@@ -41,7 +41,7 @@ function handleResumePause() {
       class="playback-icon"
     />
   </button>
-</div>
+</section>
 </template>
 
 <style scoped>

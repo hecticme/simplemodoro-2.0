@@ -42,6 +42,9 @@ module.exports = {
     '@stylistic/js/quotes': [
       'error',
       'single',
+      {
+        avoidEscape: true,
+      },
     ],
     '@stylistic/js/quote-props': [
       'error',

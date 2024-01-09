@@ -1,6 +1,6 @@
 <script setup>
 import ThePomodoro from './components/ThePomodoro.vue';
-import TheHeader from './components/TheHeader/index.vue';
+import TheHeader from './components/TheHeader.vue';
 </script>
 
 <template>

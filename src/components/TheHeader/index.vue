@@ -19,5 +19,7 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  margin-block: 1.5rem 2.5rem;
+  width: 100%;
 }
 </style>

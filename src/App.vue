@@ -14,7 +14,7 @@ import TheHeader from './components/TheHeader/index.vue';
 <style scoped>
 .app-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
 }

@@ -1,0 +1,53 @@
+<svg
+  viewBox="0 0 32 32"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path id="clock-outline" d="M16 16L24.2146 6.29188C25.3144 4.99205 24.3905 3 22.6878 3H9.31221C7.60949 3 6.68759 4.99443 7.78745 6.29426C13.8442 13.4523 18.1558 18.5477 24.2125 25.7057C25.3124 27.0056 24.3905 29 22.6878 29H9.31221C7.60949 29 6.68558 27.008 7.78544 25.7081L10.5 22.5L16 16Z"/>
+  <rect id="cloud-right" x="16" y="10" rx="1.5"/>
+  <rect id="cloud-right-inner" x="18" y="11" rx="0.5"/>
+  <rect id="cloud-left" x="6" y="23" rx="1"/>
+
+  <style>
+    #clock-outline {
+      stroke: #151515;
+      stroke-width: 2px;
+    }
+
+    #cloud-right {
+      fill: #fff;
+      width: 8px;
+      height: 3px;
+    }
+
+    #cloud-right-inner {
+      fill: #151515;
+      width: 3px;
+      height: 1px;
+    }
+
+    #cloud-left {
+      fill: #fff;
+      width: 6px;
+      height: 2px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #clock-outline {
+        stroke: #fff;
+      }
+
+      #cloud-right {
+        fill: #151515;
+      }
+
+      #cloud-right-inner {
+        fill: #fff;
+      }
+
+      #cloud-left {
+        fill: #151515;
+      }
+    }
+  </style>  
+</svg>

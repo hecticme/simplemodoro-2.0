@@ -1,0 +1,64 @@
+<svg
+  viewBox="0 0 32 32"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect id="break-time-badge" x="5" y="5" rx="11"/>
+  <path id="clock-outline" d="M16 16L24.2146 6.29188C25.3144 4.99205 24.3905 3 22.6878 3H9.31221C7.60949 3 6.68759 4.99443 7.78745 6.29426C13.8442 13.4523 18.1558 18.5477 24.2125 25.7057C25.3124 27.0056 24.3905 29 22.6878 29H9.31221C7.60949 29 6.68558 27.008 7.78544 25.7081L10.5 22.5L16 16Z"/>
+  <rect id="cloud-right" x="16" y="10" rx="1.5"/>
+  <rect id="cloud-right-inner" x="18" y="11" rx="0.5"/>
+  <rect id="cloud-left" x="6" y="23" rx="1"/>
+
+  <style>
+    #break-time-badge {
+      width: 22px;
+      height: 22px;
+      fill: #60A5FA;
+    }
+
+    #clock-outline {
+      stroke: #151515;
+      stroke-width: 2px;
+    }
+
+    #cloud-right {
+      width: 8px;
+      height: 3px;
+      fill: #fff;
+    }
+
+    #cloud-right-inner {
+      width: 3px;
+      height: 1px;
+      fill: #151515;
+    }
+
+    #cloud-left {
+      width: 6px;
+      height: 2px;
+      fill: #fff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #break-time-badge {
+        fill: #1E3A8A;
+      }
+
+      #clock-outline {
+        stroke: #fff;
+      }
+
+      #cloud-right {
+        fill: #151515;
+      }
+
+      #cloud-right-inner {
+        fill: #fff;
+      }
+
+      #cloud-left {
+        fill: #151515;
+      }
+    }  
+  </style>
+</svg>

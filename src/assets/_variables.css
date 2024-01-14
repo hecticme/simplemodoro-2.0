@@ -3,5 +3,5 @@
   --color-black: #171717;
   --color-black-dim: #303030;
 
-  --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }

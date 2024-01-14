@@ -62,7 +62,7 @@ function handleResumePause() {
   background-color: var(--color-black);
   transition-property: transform, color, background-color;
   transition-duration: 150ms;
-  transition-timing-function: var(--cubic-bezier);
+  transition-timing-function: var(--transition-cubic-bezier);
   --playback-icon-size: 1.3rem;
 }
 
@@ -89,7 +89,7 @@ function handleResumePause() {
   top: 0;
   transition-property: top;
   transition-duration: 150ms;
-  transition-timing-function: var(--cubic-bezier);
+  transition-timing-function: var(--transition-cubic-bezier);
 }
 
 .playback-icon-wrapper.is-playing {

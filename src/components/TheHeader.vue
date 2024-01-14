@@ -4,15 +4,11 @@ import IconGithubMark from '../assets/icons/IconGithubMark.vue';
 
 <template>
 <header class="header">
-  <div>
-    <p>Logo</p>
-  </div>
+  <p class="logo-text">Simplemodoro.</p>
 
-  <div>
-    <a href="https://github.com/">
-      <IconGithubMark class="icon-github" />
-    </a>
-  </div>
+  <a href="https://github.com/">
+    <IconGithubMark class="icon-github" />
+  </a>
 </header>
 </template>
 
@@ -23,6 +19,11 @@ import IconGithubMark from '../assets/icons/IconGithubMark.vue';
   gap: 1rem;
   margin-block: 1.5rem 2.5rem;
   width: 100%;
+}
+
+.logo-text {
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
 .icon-github {

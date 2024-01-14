@@ -1,5 +1,6 @@
-@import './_reset.css';
-@import './_variables.css';
+@import './_reset';
+@import './_variables';
+@import './_anchor';
 
 body {
   font-family: monospace;

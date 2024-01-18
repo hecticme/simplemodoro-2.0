@@ -6,7 +6,11 @@ import IconGithubMark from '../assets/icons/IconGithubMark.vue';
 <header class="header">
   <p class="logo-text">Simplemodoro.</p>
 
-  <a href="https://github.com/">
+  <a
+    href="https://github.com/"
+    target="_blank"
+    rel="noreferrer"
+  >
     <IconGithubMark class="icon-github" />
   </a>
 </header>

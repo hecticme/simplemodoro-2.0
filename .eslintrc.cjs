@@ -14,9 +14,16 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    'no-unexpected-multiline': 'error',
     '@stylistic/js/comma-dangle': [
       'error',
-      'always-multiline',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'never',
+      },
     ],
     '@stylistic/js/eol-last': [
       'error',
@@ -51,6 +58,13 @@ module.exports = {
       'as-needed',
     ],
     '@stylistic/js/semi': [
+      'error',
+      'never',
+      {
+        beforeStatementContinuationChars: 'never',
+      },
+    ],
+    '@stylistic/js/space-before-function-paren': [
       'error',
       'always',
     ],

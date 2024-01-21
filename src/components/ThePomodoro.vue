@@ -1,6 +1,6 @@
 <script setup>
-import TheCountdown from './TheCountdown.vue';
-import ThePlaybackControls from './ThePlaybackControls.vue';
+import TheCountdown from './TheCountdown.vue'
+import ThePlaybackControls from './ThePlaybackControls.vue'
 </script>
 
 <template>

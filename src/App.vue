@@ -1,7 +1,7 @@
 <script setup>
-import ThePomodoro from './components/ThePomodoro.vue';
-import TheHeader from './components/TheHeader.vue';
-import TheMessage from './components/TheMessage.vue';
+import ThePomodoro from './components/ThePomodoro.vue'
+import TheHeader from './components/TheHeader.vue'
+import TheMessage from './components/TheMessage.vue'
 </script>
 
 <template>

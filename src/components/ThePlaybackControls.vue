@@ -1,11 +1,11 @@
 <script setup>
-import { Icon } from '@iconify/vue';
-import { ref } from 'vue';
+import { Icon } from '@iconify/vue'
+import { ref } from 'vue'
 
-const isPlaying = ref(false);
+const isPlaying = ref(false)
 
-function handleResumePause() {
-  isPlaying.value = !isPlaying.value;
+function handleResumePause () {
+  isPlaying.value = !isPlaying.value
 }
 </script>
 

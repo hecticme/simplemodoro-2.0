@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const countdown = ref(25 * 60);
+const countdown = ref(25 * 60)
 
 </script>
 

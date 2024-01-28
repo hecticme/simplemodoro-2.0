@@ -1,13 +1,16 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import formatTime from '@/utils/formatTime'
 
 const countdown = ref(25 * 60)
-
+const normalizedCountdown = computed(
+  () => formatTime(countdown.value)
+)
 </script>
 
 <template>
   <h1 class="countdown">
-    {{ countdown }}
+    {{ normalizedCountdown }}
   </h1>
 </template>
 

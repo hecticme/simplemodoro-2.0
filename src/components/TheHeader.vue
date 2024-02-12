@@ -1,6 +1,6 @@
 <script setup>
-import IconGithubMark from '../assets/icons/IconGithubMark.vue'
 import ButtonTheme from './ButtonTheme.vue'
+import LinkGithub from './LinkGithub.vue'
 </script>
 
 <template>
@@ -10,13 +10,7 @@ import ButtonTheme from './ButtonTheme.vue'
   <div class="header-utils">
     <ButtonTheme />
 
-    <a
-      href="https://github.com/"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <IconGithubMark class="icon-github" />
-    </a>
+    <LinkGithub />
   </div>
 </header>
 </template>
@@ -38,18 +32,5 @@ import ButtonTheme from './ButtonTheme.vue'
 .logo-text {
   font-size: 0.75rem;
   font-weight: 700;
-}
-
-.icon-github {
-  width: 1rem;
-  color: #151515;
-  cursor: pointer;
-  transition-property: transform;
-  transition-duration: 150ms;
-  transition-timing-function: var(--transition-cubic-bezier);
-}
-
-.icon-github:hover {
-  transform: scale(1.1);
 }
 </style>

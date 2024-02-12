@@ -2,9 +2,16 @@
 import { Icon } from '@iconify/vue'
 import { ref } from 'vue'
 
+const emit = defineEmits([
+  'resume',
+  'pause',
+])
+
 const isPlaying = ref(false)
 
 function handleResumePause () {
+  emit(isPlaying.value ? 'pause' : 'resume')
+
   isPlaying.value = !isPlaying.value
 }
 </script>

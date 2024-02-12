@@ -1,11 +1,15 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import formatTime from '@/utils/formatTime'
 
-const countdown = ref(25 * 60)
-const normalizedCountdown = computed(
-  () => formatTime(countdown.value)
-)
+const props = defineProps({
+  timeLeft: {
+    type: Number,
+    required: true,
+  },
+})
+
+const normalizedCountdown = computed(() => formatTime(props.timeLeft))
 </script>
 
 <template>

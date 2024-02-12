@@ -3,21 +3,15 @@ import { Icon } from '@iconify/vue'
 </script>
 
 <template>
-  <div class="theme-container">
-    <button class="button-theme">
-      <Icon
-        icon="material-symbols:sunny-outline-rounded"
-        class="icon-theme"
-      />
-    </button>
-  </div>
+  <button class="button-theme">
+    <Icon
+      icon="material-symbols:sunny-outline-rounded"
+      class="icon-theme"
+    />
+  </button>
 </template>
 
 <style scoped>
-.theme-container {
-  position: relative;
-}
-
 .button-theme {
   display: flex;
   justify-content: center;

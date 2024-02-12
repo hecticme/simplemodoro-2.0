@@ -5,6 +5,7 @@ import { ref } from 'vue'
 const emit = defineEmits([
   'resume',
   'pause',
+  'reset',
 ])
 
 const isPlaying = ref(false)
@@ -13,6 +14,12 @@ function handleResumePause () {
   emit(isPlaying.value ? 'pause' : 'resume')
 
   isPlaying.value = !isPlaying.value
+}
+
+function handleResetCountdown () {
+  emit('reset')
+
+  isPlaying.value = false
 }
 </script>
 
@@ -42,7 +49,10 @@ function handleResumePause () {
     </div>
   </button>
 
-  <button class="playback-button button-reset">
+  <button
+    class="playback-button button-reset"
+    @click="handleResetCountdown"
+  >
     <Icon
       icon="material-symbols:restart-alt-rounded"
       class="playback-icon"

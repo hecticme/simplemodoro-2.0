@@ -28,6 +28,12 @@ function pause () {
   timeLeftMark.value = timeLeft.value
   clearInterval(intervalId.value)
 }
+
+function reset () {
+  timeLeft.value = initialDuration
+  timeLeftMark.value = initialDuration
+  clearInterval(intervalId.value)
+}
 </script>
 
 <template>
@@ -37,6 +43,7 @@ function pause () {
   <ThePlaybackControls
     @resume="resume"
     @pause="pause"
+    @reset="reset"
   />
 </section>
 </template>

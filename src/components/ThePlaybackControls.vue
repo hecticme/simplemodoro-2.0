@@ -75,7 +75,7 @@ function handleResetCountdown () {
   width: 2.5rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  color: var(--color-white);
+  color: var(--color-white-100);
   background-color: var(--color-black-900);
   transition-property: transform, color, background-color;
   transition-duration: 150ms;
@@ -86,7 +86,7 @@ function handleResetCountdown () {
 .playback-button:is(:hover, :focus-visible) {
   transform: translateY(-3px);
   color: var(--color-black-900);
-  background-color: var(--color-white);
+  background-color: var(--color-white-100);
   outline: 1px solid var(--color-black-900);
 }
 

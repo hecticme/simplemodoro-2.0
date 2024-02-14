@@ -4,6 +4,6 @@
 
 body {
   font-family: monospace;
-  color: var(--color-black);
+  color: var(--color-black-900);
   background-color: var(--color-white);
 }

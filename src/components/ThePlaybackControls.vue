@@ -77,7 +77,7 @@ function handleResetCountdown () {
   border-radius: 50%;
   color: var(--color-white-100);
   background-color: var(--color-black-900);
-  transition-property: transform, color, background-color;
+  transition-property: transform, color, background-color, outline;
   transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
   --playback-icon-size: 1.3rem;

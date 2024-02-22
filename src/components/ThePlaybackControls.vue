@@ -78,7 +78,7 @@ function handleResetCountdown () {
   color: var(--color-white-100);
   background-color: var(--color-black-900);
   transition-property: transform, color, background-color;
-  transition-duration: 150ms;
+  transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
   --playback-icon-size: 1.3rem;
 }
@@ -105,7 +105,7 @@ function handleResetCountdown () {
   flex-direction: column;
   top: 0;
   transition-property: top;
-  transition-duration: 150ms;
+  transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
 }
 

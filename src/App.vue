@@ -2,6 +2,7 @@
 import ThePomodoro from './components/ThePomodoro.vue'
 import TheHeader from './components/TheHeader.vue'
 import TheMessage from './components/TheMessage.vue'
+import TheSettings from './components/TheSettings.vue'
 </script>
 
 <template>
@@ -11,6 +12,8 @@ import TheMessage from './components/TheMessage.vue'
     <TheMessage />
 
     <ThePomodoro />
+
+    <TheSettings />
   </main>
 </template>
 

@@ -7,12 +7,12 @@ import { Icon } from '@iconify/vue'
 // Import stores.
 import { useThemeStore } from '@/stores/theme'
 
+const theme = useThemeStore()
+
 const iconThemeName = computed(() => theme.isDarkTheme
   ? 'material-symbols:dark-mode-rounded'
   : 'material-symbols:sunny-outline-rounded'
 )
-
-const theme = useThemeStore()
 </script>
 
 <template>

@@ -120,9 +120,18 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
 }
 
 .settings-save {
-  font-weight: 700;
   padding: 0.625rem 1rem;
-  margin-block-start: 1rem;
+  margin-block-start: 0.5rem;
   border-radius: 4px;
+  font-weight: 700;
+  color: var(--color-white-100);
+  background-color: var(--color-black-900);
+  transition-property: background-color;
+  transition-duration: 150ms;
+  transition-timing-function: var(--transition-cubic-bezier);
+}
+
+.settings-save:is(:hover, :focus-visible) {
+  background-color: var(--color-black-700);
 }
 </style>

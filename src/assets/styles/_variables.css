@@ -1,7 +1,7 @@
 :root {
-  --color-white-100: #fff;
-  --color-black-900: #171717;
-  --color-black-700: #303030;
+  --color-white-100: hsl(0, 0%, 100%);
+  --color-black-900: hsl(0, 0%, 9%);
+  --color-black-700: hsl(0, 0%, 19%);
 
   --transition-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }

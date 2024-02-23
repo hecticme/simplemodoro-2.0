@@ -43,13 +43,12 @@ defineEmits([
   font-weight: 700;
   color: var(--color-white-100);
   background-color: var(--color-black-900);
-  transition-property: color, background-color, transform, outline;
+  transition-property: color, background-color, outline;
   transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
 }
 
 .button-settings:is(:hover, :focus-visible) {
-  transform: translateY(-3px);
   color: var(--color-black-900);
   background-color: var(--color-white-100);
   outline: 1px solid var(--color-black-900);

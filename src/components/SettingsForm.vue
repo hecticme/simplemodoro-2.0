@@ -26,6 +26,12 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
   v-if="isOpen"
   class="settings-form-wrapper"
 >
+  <!-- This `div` is for turning off the modal when clicking outside -->
+  <div
+    @click="$emit('toggleSettingsForm')"
+    class="settings-background"
+  ></div>
+
   <div class="settings-form">
     <div class="input-container">
       <label
@@ -80,6 +86,11 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
   backdrop-filter: blur(4px);
 }
 
+.settings-background {
+  position: absolute;
+  inset: 0;
+}
+
 .settings-form {
   display: flex;
   flex-direction: column;
@@ -87,6 +98,7 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
   gap: 1rem;
   padding: 1rem 1.25rem;
   border-radius: 4px;
+  z-index: 1;
 }
 
 .input-container {

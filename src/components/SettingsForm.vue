@@ -4,6 +4,13 @@ import { ref } from 'vue'
 // Import stores
 import { usePomodoroStore } from '@/stores/pomodoro'
 
+defineProps({
+  isOpen: {
+    type: Boolean,
+    required: true,
+  },
+})
+
 const pomodoro = usePomodoroStore()
 
 const focusDuration = ref(pomodoro.focusDuration / 60)
@@ -11,7 +18,10 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
 </script>
 
 <template>
-<section class="settings-form-wrapper">
+<section
+  v-if="isOpen"
+  class="settings-form-wrapper"
+>
   <div class="settings-form">
     <div class="input-container">
       <label

@@ -11,6 +11,10 @@ defineProps({
   },
 })
 
+defineEmits([
+  'toggleSettingsForm',
+])
+
 const pomodoro = usePomodoroStore()
 
 const focusDuration = ref(pomodoro.focusDuration / 60)
@@ -54,6 +58,13 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
         class="input-session"
       />
     </div>
+
+    <button
+      @click="$emit('toggleSettingsForm')"
+      class="settings-save"
+    >
+      Save
+    </button>
   </div>
 </section>
 </template>
@@ -94,5 +105,12 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
   border: none;
   border-radius: 4px;
   padding: 0.3rem 0.5rem;
+}
+
+.settings-save {
+  font-weight: 700;
+  padding: 0.625rem 1rem;
+  margin-block-start: 1rem;
+  border-radius: 4px;
 }
 </style>

@@ -21,6 +21,7 @@ function toggleSettingsForm () {
 
   <SettingsForm
     :is-open="isOpen"
+    @toggle-settings-form="toggleSettingsForm"
   />
 </div>
 </template>

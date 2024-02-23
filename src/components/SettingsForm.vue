@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-// Import stores.
+// Import stores
 import { usePomodoroStore } from '@/stores/pomodoro'
 
 const pomodoro = usePomodoroStore()
@@ -11,42 +11,54 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
 </script>
 
 <template>
-<div class="settings-form">
-  <div class="input-container">
-    <label
-      for="focus-duration"
-      class="label"
-    >
-      Focus session duration
-    </label>
-    <input
-      v-model="focusDuration"
-      type="number"
-      id="focus-duration"
-      name="focus-duration"
-      class="input-session"
-    />
-  </div>
+<section class="settings-form-wrapper">
+  <div class="settings-form">
+    <div class="input-container">
+      <label
+        for="focus-duration"
+        class="label"
+      >
+        Focus session duration
+      </label>
+      <input
+        v-model="focusDuration"
+        type="number"
+        id="focus-duration"
+        name="focus-duration"
+        class="input-session"
+      />
+    </div>
 
-  <div class="input-container">
-    <label
-      for="break-duration"
-      class="label"
-    >
-      Break session duration
-    </label>
-    <input
-      v-model="breakDuration"
-      type="number"
-      id="break-duration"
-      name="break-duration"
-      class="input-session"
-    />
+    <div class="input-container">
+      <label
+        for="break-duration"
+        class="label"
+      >
+        Break session duration
+      </label>
+      <input
+        v-model="breakDuration"
+        type="number"
+        id="break-duration"
+        name="break-duration"
+        class="input-session"
+      />
+    </div>
   </div>
-</div>
+</section>
 </template>
 
 <style scope>
+.settings-form-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(0, 0%, 9%, 0.5);
+  backdrop-filter: blur(4px);
+}
+
 .settings-form {
   display: flex;
   flex-direction: column;

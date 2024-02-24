@@ -101,9 +101,9 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
   flex-direction: column;
   align-items: center;
   background-color: var(--color-black-900);
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  border-radius: 4px;
+  gap: 1.5rem;
+  padding: 1.75rem 2.5rem;
+  border-radius: 12px;
   z-index: 1;
 }
 
@@ -123,7 +123,7 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
 .input-container {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.75rem;
 }
 
 .label {
@@ -135,7 +135,7 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
   font-size: 1rem;
   border: none;
   border-radius: 4px;
-  padding: 0.3rem 0.5rem;
+  padding: 0.75rem 0.5rem;
 }
 
 .settings-save {

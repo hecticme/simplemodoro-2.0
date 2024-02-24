@@ -8,6 +8,7 @@ import ThePlaybackControls from './ThePlaybackControls.vue'
 
 const {
   timeLeft,
+  isPaused,
   resume,
   pause,
   reset,
@@ -20,6 +21,7 @@ const {
   <TheCountdown :timeLeft="timeLeft" />
 
   <ThePlaybackControls
+    :isPaused="isPaused"
     @resume="resume"
     @pause="pause"
     @reset="reset"

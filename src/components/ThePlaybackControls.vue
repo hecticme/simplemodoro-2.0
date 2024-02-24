@@ -1,6 +1,12 @@
 <script setup>
 import { Icon } from '@iconify/vue'
-import { ref } from 'vue'
+
+const props = defineProps({
+  isPaused: {
+    type: Boolean,
+    required: true,
+  },
+})
 
 const emit = defineEmits([
   'resume',
@@ -8,18 +14,12 @@ const emit = defineEmits([
   'reset',
 ])
 
-const isPlaying = ref(false)
-
 function handleResumePause () {
-  emit(isPlaying.value ? 'pause' : 'resume')
-
-  isPlaying.value = !isPlaying.value
+  emit(props.isPaused ? 'resume' : 'pause')
 }
 
 function handleResetCountdown () {
   emit('reset')
-
-  isPlaying.value = false
 }
 </script>
 
@@ -33,7 +33,7 @@ function handleResetCountdown () {
       <div
         class="playback-icon-wrapper"
         :class="{
-          'is-playing': isPlaying,
+          'is-playing': !isPaused,
         }"
       >
         <Icon

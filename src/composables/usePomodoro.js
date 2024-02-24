@@ -79,6 +79,7 @@ export default function usePomodoro () {
 
   return {
     timeLeft,
+    isPaused,
     resume,
     pause,
     reset,

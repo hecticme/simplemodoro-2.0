@@ -52,6 +52,7 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
           class="input-session"
         />
       </div>
+
       <div class="input-container">
         <label
           for="break-duration"
@@ -67,6 +68,7 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
           class="input-session"
         />
       </div>
+
       <button
         @click="$emit('toggleSettingsForm')"
         class="settings-save"

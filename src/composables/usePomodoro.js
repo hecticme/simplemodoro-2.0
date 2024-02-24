@@ -1,12 +1,13 @@
 import { ref } from 'vue'
+import { usePomodoroStore } from '@/stores/pomodoro'
 
 export default function usePomodoro () {
-  const initialDuration = 25 * 60
+  const pomodoro = usePomodoroStore()
 
-  /** Remaining time value to be displayed. */
-  const timeLeft = ref(initialDuration)
+  /** Remaining time value to be displayed. Default to focus duration. */
+  const timeLeft = ref(pomodoro.focusDuration)
   /** Remaining time value for the next countdown after paused. */
-  const timeLeftMark = ref(initialDuration)
+  const timeLeftMark = ref(pomodoro.focusDuration)
 
   const intervalId = ref(null)
   const resumeTime = ref(null)
@@ -26,8 +27,8 @@ export default function usePomodoro () {
   }
 
   function reset () {
-    timeLeft.value = initialDuration
-    timeLeftMark.value = initialDuration
+    timeLeft.value = pomodoro.focusDuration
+    timeLeftMark.value = pomodoro.focusDuration
     clearInterval(intervalId.value)
   }
 

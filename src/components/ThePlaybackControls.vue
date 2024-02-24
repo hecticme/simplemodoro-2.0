@@ -33,7 +33,7 @@ function handleResetCountdown () {
       <div
         class="playback-icon-wrapper"
         :class="{
-          'is-playing': !isPaused,
+          'is-paused': isPaused,
         }"
       >
         <Icon
@@ -102,14 +102,14 @@ function handleResetCountdown () {
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 0;
+  top: -100%;
   transition-property: top;
   transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
 }
 
-.playback-icon-wrapper.is-playing {
-  top: -100%;
+.playback-icon-wrapper.is-paused {
+  top: 0;
 }
 
 .playback-icon {

@@ -32,7 +32,29 @@ export default function usePomodoro () {
 
     intervalId.value = setInterval(() => {
       const timePassed = (Date.now() - resumeTime.value) / 1000
-      timeLeft.value = Math.ceil(timeLeftMark.value - timePassed)
+      const remainingTime = Math.ceil(timeLeftMark.value - timePassed)
+
+      if (remainingTime >= 0) {
+        timeLeft.value = remainingTime
+
+        return
+      }
+
+      if (!pomodoro.isBreak) {
+        timeLeft.value = pomodoro.breakDuration
+        timeLeftMark.value = pomodoro.breakDuration
+        resumeTime.value = Date.now()
+
+        pomodoro.setIsBreak(true)
+
+        return
+      }
+
+      timeLeft.value = pomodoro.focusDuration
+      timeLeftMark.value = pomodoro.focusDuration
+
+      clearCountdownInterval()
+      pomodoro.setIsBreak(false)
     }, 500)
   }
 

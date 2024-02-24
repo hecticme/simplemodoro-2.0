@@ -1,10 +1,10 @@
 <script setup>
 import { computed } from 'vue'
 
-// Import components.
+// Import components
 import { Icon } from '@iconify/vue'
 
-// Import stores.
+// Import stores
 import { useThemeStore } from '@/stores/theme'
 
 const theme = useThemeStore()

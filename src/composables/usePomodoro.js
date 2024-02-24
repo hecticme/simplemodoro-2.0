@@ -9,6 +9,9 @@ export default function usePomodoro () {
   /** Remaining time value for the next countdown after paused. */
   const timeLeftMark = ref(pomodoro.focusDuration)
 
+  const intervalId = ref(null)
+  const resumeTime = ref(null)
+
   const isPaused = computed(() => intervalId.value === null)
 
   watch(
@@ -23,9 +26,7 @@ export default function usePomodoro () {
     }
   )
 
-  const intervalId = ref(null)
-  const resumeTime = ref(null)
-
+  // Playback functions
   function resume () {
     resumeTime.value = Date.now()
 

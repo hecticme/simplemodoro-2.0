@@ -27,11 +27,14 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
     localStorage.setItem('breakDuration', breakDuration.value)
   }
 
-  // Pomodoro state
+  // Pomodoro's session state
   const isBreak = ref(false)
 
-  function toggleSession () {
-    isBreak.value = !isBreak.value
+  /**
+   * @param {boolean} state - A boolean value to know if it is break session.
+   */
+  function setIsBreak (state) {
+    isBreak.value = state
   }
 
   return {
@@ -40,6 +43,6 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
     setFocusDuration,
     setBreakDuration,
     isBreak,
-    toggleSession,
+    setIsBreak,
   }
 })

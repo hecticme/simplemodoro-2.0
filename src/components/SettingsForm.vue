@@ -99,6 +99,7 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
 .settings-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: var(--color-black-900);
   gap: 1rem;
   padding: 1rem 1.25rem;
@@ -138,9 +139,10 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
 }
 
 .settings-save {
-  padding: 0.625rem 1rem;
+  width: fit-content;
+  padding: 0.625rem 2.75rem;
   margin-block-start: 0.5rem;
-  border-radius: 4px;
+  border-radius: 100vh;
   font-weight: 700;
   color: var(--color-white-100);
   background-color: var(--color-black-900);

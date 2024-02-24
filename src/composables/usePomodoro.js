@@ -69,6 +69,7 @@ export default function usePomodoro () {
     timeLeftMark.value = pomodoro.focusDuration
 
     clearCountdownInterval()
+    pomodoro.setIsBreak(false)
   }
 
   // Reusable functions specific to this composable

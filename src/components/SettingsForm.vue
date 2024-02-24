@@ -11,7 +11,7 @@ defineProps({
   },
 })
 
-defineEmits([
+const emit = defineEmits([
   'toggleSettingsForm',
 ])
 
@@ -19,6 +19,13 @@ const pomodoro = usePomodoroStore()
 
 const focusDuration = ref(pomodoro.focusDuration / 60)
 const breakDuration = ref(pomodoro.breakDuration / 60)
+
+function saveSettings () {
+  emit('toggleSettingsForm')
+
+  pomodoro.setFocusDuration(focusDuration.value * 60)
+  pomodoro.setBreakDuration(breakDuration.value * 60)
+}
 </script>
 
 <template>
@@ -70,7 +77,7 @@ const breakDuration = ref(pomodoro.breakDuration / 60)
       </div>
 
       <button
-        @click="$emit('toggleSettingsForm')"
+        @click="saveSettings"
         class="settings-save"
       >
         Save

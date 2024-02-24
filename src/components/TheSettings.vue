@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-// Import components
+// Import components.
 import SettingsForm from './SettingsForm.vue'
 import SettingsButton from './SettingsButton.vue'
 

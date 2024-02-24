@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-// Import stores
+// Import stores.
 import { usePomodoroStore } from '@/stores/pomodoro'
 
 defineProps({

@@ -1,5 +1,5 @@
 <script setup>
-// Import components
+// Import components.
 import { Icon } from '@iconify/vue'
 
 defineProps({

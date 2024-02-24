@@ -26,7 +26,7 @@ export default function usePomodoro () {
     }
   )
 
-  // Playback functions
+  // Playback functions.
   function resume () {
     resumeTime.value = Date.now()
 
@@ -72,7 +72,7 @@ export default function usePomodoro () {
     pomodoro.setIsBreak(false)
   }
 
-  // Reusable functions specific to this composable
+  // Reusable functions specific to this composable.
   function clearCountdownInterval () {
     clearInterval(intervalId.value)
     intervalId.value = null

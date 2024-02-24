@@ -1,8 +1,8 @@
 <script setup>
-// Import composables
+// Import composables.
 import usePomodoro from '@/composables/usePomodoro'
 
-// Import components
+// Import components.
 import TheCountdown from './TheCountdown.vue'
 import ThePlaybackControls from './ThePlaybackControls.vue'
 

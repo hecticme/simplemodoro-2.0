@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const usePomodoroStore = defineStore('pomodoro', () => {
-  // Session durations
+  // Session durations.
   const localFocusDuration = localStorage.getItem('focusDuration')
   const localBreakDuration = localStorage.getItem('breakDuration')
 
@@ -27,7 +27,7 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
     localStorage.setItem('breakDuration', breakDuration.value)
   }
 
-  // Pomodoro's session state
+  // Pomodoro's session state.
   const isBreak = ref(false)
 
   /**

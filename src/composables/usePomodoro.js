@@ -39,14 +39,18 @@ export default function usePomodoro () {
   function pause () {
     timeLeftMark.value = timeLeft.value
 
-    clearInterval(intervalId.value)
-    intervalId.value = null
+    clearCountdownInterval()
   }
 
   function reset () {
     timeLeft.value = pomodoro.focusDuration
     timeLeftMark.value = pomodoro.focusDuration
 
+    clearCountdownInterval()
+  }
+
+  // Reusable functions specific to this composable
+  function clearCountdownInterval () {
     clearInterval(intervalId.value)
     intervalId.value = null
   }

@@ -10,13 +10,13 @@ export default function usePomodoro () {
   const timeLeftMark = ref(pomodoro.focusDuration)
 
   const isPaused = computed(() => intervalId.value === null)
+
   watch(
     () => pomodoro.focusDuration,
     () => {
       if (!isPaused.value) {
         return
       }
-
 
       timeLeft.value = pomodoro.focusDuration
       timeLeftMark.value = pomodoro.focusDuration
@@ -57,6 +57,3 @@ export default function usePomodoro () {
     reset,
   }
 }
-
-
-

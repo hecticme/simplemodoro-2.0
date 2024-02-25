@@ -35,15 +35,23 @@ const iconThemeName = computed(() => theme.isDarkTheme
   padding: 0.5rem;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background-color: #fff;
-  transition-property: background-color;
+  color: var(--color-black-900);
+  background-color: transparent;
+  transition-property: color, background-color;
   transition-duration: 150ms;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: var(--transition-cubic-bezier);
 }
 
 .button-theme:is(:hover, :focus-visible) {
-  background-color: #eeeeee;
-  outline: none;
+  background-color: var(--color-gray-100);
+}
+
+.dark .button-theme {
+  color: var(--color-white-200);
+}
+
+.dark .button-theme:is(:hover, :focus-visible) {
+  background-color: var(--color-black-700);
 }
 
 .icon-theme {

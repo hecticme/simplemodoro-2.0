@@ -4,7 +4,7 @@ import IconGithubMark from '../assets/icons/IconGithubMark.vue'
 
 <template>
 <a
-  href="https://github.com/"
+  href="https://github.com/hecticme/simplemodoro-2.0"
   target="_blank"
   rel="noreferrer"
   class="icon-github-container"

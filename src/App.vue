@@ -38,8 +38,8 @@ const theme = useThemeStore()
 }
 
 .app-body.dark {
-  background-color: var(--color-black-900);
-  color: var(--color-white-100);
+  background-color: var(--color-black-800);
+  color: var(--color-white-200);
 }
 
 .app-container {

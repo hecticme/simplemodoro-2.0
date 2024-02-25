@@ -1,23 +1,44 @@
 <script setup>
+// Import stores.
+import { useThemeStore } from './stores/theme'
+
+// Import components.
 import ThePomodoro from './components/ThePomodoro.vue'
 import TheHeader from './components/TheHeader.vue'
 import TheMessage from './components/TheMessage.vue'
 import TheSettings from './components/TheSettings.vue'
+
+const theme = useThemeStore()
 </script>
 
 <template>
-  <main class="app-container">
-    <TheHeader />
-
-    <TheMessage />
-
-    <ThePomodoro />
-
-    <TheSettings />
-  </main>
+  <div
+    class="app-body"
+    :class="{
+      dark: theme.isDarkTheme
+    }"
+  >
+    <main class="app-container">
+      <TheHeader />
+      <TheMessage />
+      <ThePomodoro />
+      <TheSettings />
+    </main>
+  </div>
 </template>
 
 <style scoped>
+.app-body {
+  font-family: monospace;
+  color: var(--color-black-900);
+  background-color: var(--color-white-100);
+}
+
+.app-body.dark {
+  background-color: var(--color-black-900);
+  color: var(--color-white-100);
+}
+
 .app-container {
   display: flex;
   flex-direction: column;

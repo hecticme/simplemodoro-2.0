@@ -32,6 +32,9 @@ const theme = useThemeStore()
   font-family: monospace;
   color: var(--color-black-900);
   background-color: var(--color-white-100);
+  transition-property: color, background-color;
+  transition-duration: 150ms;
+  transition-timing-function: var(--transition-cubic-bezier);
 }
 
 .app-body.dark {

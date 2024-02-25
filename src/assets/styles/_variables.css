@@ -1,7 +1,15 @@
 :root {
+  /* Colors. */
+  /* For light theme: */
   --color-white-100: hsl(0, 0%, 100%);
   --color-black-900: hsl(0, 0%, 9%);
+  /* For dark theme: */
+  --color-white-200: hsl(60, 30%, 96%);
+  --color-black-800: hsl(195, 6%, 12%);
+  /* Other utilities colors: */
   --color-black-700: hsl(0, 0%, 19%);
+  --color-gray-100: hsl(0, 0%, 93%);
 
+  /* Transitions. */
   --transition-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }

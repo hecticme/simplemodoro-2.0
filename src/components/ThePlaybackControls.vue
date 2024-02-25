@@ -68,6 +68,7 @@ function handleResetCountdown () {
   gap: 1rem;
 }
 
+/* Playback button */
 .playback-button {
   display: flex;
   justify-content: center;
@@ -89,6 +90,18 @@ function handleResetCountdown () {
   outline: 1px solid var(--color-black-900);
 }
 
+.dark .playback-button {
+  color: var(--color-black-800);
+  background-color: var(--color-white-200);
+}
+
+.dark .playback-button:is(:hover, :focus-visible) {
+  color: var(--color-white-200);
+  background-color: var(--color-black-800);
+  outline: 1px solid var(--color-white-200);
+}
+
+/* Playback icon */
 .playback-icon-anchor {
   position: relative;
   display: flex;

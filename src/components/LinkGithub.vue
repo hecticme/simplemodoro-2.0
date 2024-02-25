@@ -23,16 +23,23 @@ import IconGithubMark from '../assets/icons/IconGithubMark.vue'
 }
 
 .icon-github-container:is(:hover, :focus-visible) {
-  background-color: #eeeeee;
-  outline: none;
+  background-color: var(--color-gray-100);
 }
 
 .icon-github {
   width: 1rem;
-  color: #151515;
+  color: var(--color-black-900);
   cursor: pointer;
-  transition-property: transform;
+  transition-property: color, transform;
   transition-duration: 150ms;
   transition-timing-function: var(--transition-cubic-bezier);
+}
+
+.dark .icon-github-container:is(:hover, :focus-visible) {
+  background-color: var(--color-black-700);
+}
+
+.dark .icon-github {
+  color: var(--color-white-200);
 }
 </style>

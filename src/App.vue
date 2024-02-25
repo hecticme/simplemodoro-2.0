@@ -29,7 +29,6 @@ const theme = useThemeStore()
 
 <style scoped>
 .app-body {
-  font-family: monospace;
   color: var(--color-black-900);
   background-color: var(--color-white-100);
   transition-property: color, background-color;

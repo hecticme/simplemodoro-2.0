@@ -1,5 +1,6 @@
 import { ref, computed, watch } from 'vue'
 import { usePomodoroStore } from '@/stores/pomodoro'
+import formatTime from '@/utils/formatTime'
 
 export default function usePomodoro () {
   const pomodoro = usePomodoroStore()
@@ -37,6 +38,9 @@ export default function usePomodoro () {
       if (remainingTime >= 0) {
         timeLeft.value = remainingTime
 
+        const sessionName = pomodoro.isBreak ? 'Break 🔵' : 'Focus 🔥'
+        document.title = `${sessionName} - ${formatTime(remainingTime)}`
+
         return
       }
 
@@ -46,6 +50,7 @@ export default function usePomodoro () {
         resumeTime.value = Date.now()
 
         pomodoro.setIsBreak(true)
+        document.title = 'Finished 🙌!'
 
         return
       }
@@ -55,6 +60,8 @@ export default function usePomodoro () {
 
       clearCountdownInterval()
       pomodoro.setIsBreak(false)
+
+      document.title = 'Simplemodoro'
     }, 500)
   }
 
@@ -70,6 +77,8 @@ export default function usePomodoro () {
 
     clearCountdownInterval()
     pomodoro.setIsBreak(false)
+
+    document.title = 'Simplemodoro'
   }
 
   // Reusable functions specific to this composable.

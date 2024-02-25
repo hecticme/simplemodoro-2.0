@@ -33,6 +33,7 @@ defineEmits([
 </template>
 
 <style scoped>
+/* Settings button. */
 .button-settings {
   display: flex;
   align-items: center;
@@ -54,6 +55,18 @@ defineEmits([
   outline: 1px solid var(--color-black-900);
 }
 
+.dark .button-settings {
+  color: var(--color-black-800);
+  background-color: var(--color-white-200);
+}
+
+.dark .button-settings:is(:hover, :focus-visible) {
+  color: var(--color-white-200);
+  background-color: var(--color-black-800);
+  outline: 1px solid var(--color-white-200);
+}
+
+/* Settings icon. */
 .button-settings:is(:hover, :focus-visible) > .icon-settings-wrapper {
   color: var(--color-white-100);
   background-color: var(--color-black-900);
@@ -73,5 +86,15 @@ defineEmits([
   transition-property: color, background-color, transform, border-radius;
   transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
+}
+
+.dark .button-settings:is(:hover, :focus-visible) > .icon-settings-wrapper {
+  color: var(--color-black-800);
+  background-color: var(--color-white-200);
+}
+
+.dark .icon-settings-wrapper {
+  color: var(--color-white-200);
+  background-color: var(--color-black-800);
 }
 </style>

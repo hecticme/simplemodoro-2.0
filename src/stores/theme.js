@@ -4,11 +4,14 @@ import { defineStore } from 'pinia'
 const darkThemeIsPreferred = window.matchMedia('(prefers-color-scheme: dark)').matches
 
 export const useThemeStore = defineStore('theme', () => {
-  const isDarkTheme = ref(localStorage.getItem('isDarkTheme') ?? darkThemeIsPreferred)
+  const localIsDarkTheme = JSON.parse(localStorage.getItem('isDarkTheme'))
+  const isDarkTheme = ref(localIsDarkTheme ?? darkThemeIsPreferred)
 
   const toggleDarkTheme = () => {
-    isDarkTheme.value = !isDarkTheme.value
-    localStorage.setItem('isDarkTheme', JSON.stringify(!isDarkTheme.value))
+    const nextTheme = !isDarkTheme.value
+
+    isDarkTheme.value = nextTheme
+    localStorage.setItem('isDarkTheme', JSON.stringify(nextTheme))
   }
 
   return {

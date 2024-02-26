@@ -79,6 +79,8 @@ function onAfterLeave () {
           <input
             v-model="focusDuration"
             type="number"
+            min="10"
+            max="240"
             id="focus-duration"
             name="focus-duration"
             class="input-session"
@@ -105,6 +107,8 @@ function onAfterLeave () {
           <input
             v-model="breakDuration"
             type="number"
+            min="1"
+            max="15"
             id="break-duration"
             name="break-duration"
             class="input-session"

@@ -18,6 +18,13 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
    */
   function setFocusDuration (duration) {
     focusDuration.value = duration
+
+    if (duration === defaultFocusDuration) {
+      localStorage.removeItem('focusDuration')
+
+      return
+    }
+
     localStorage.setItem('focusDuration', focusDuration.value)
   }
 
@@ -27,6 +34,13 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
    */
   function setBreakDuration (duration) {
     breakDuration.value = duration
+
+    if (duration === defaultBreakDuration) {
+      localStorage.removeItem('breakDuration')
+
+      return
+    }
+
     localStorage.setItem('breakDuration', breakDuration.value)
   }
 
@@ -43,6 +57,8 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
   return {
     focusDuration,
     breakDuration,
+    defaultFocusDuration,
+    defaultBreakDuration,
     setFocusDuration,
     setBreakDuration,
     isBreak,

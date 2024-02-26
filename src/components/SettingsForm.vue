@@ -23,6 +23,14 @@ const pomodoro = usePomodoroStore()
 const focusDuration = ref(pomodoro.focusDuration / 60)
 const breakDuration = ref(pomodoro.breakDuration / 60)
 
+function resetFocusDuration () {
+  focusDuration.value = pomodoro.defaultFocusDuration / 60
+}
+
+function resetBreakDuration () {
+  breakDuration.value = pomodoro.defaultBreakDuration / 60
+}
+
 function saveSettings () {
   emit('toggleSettingsForm')
 
@@ -66,6 +74,7 @@ function saveSettings () {
 
           <button
             class="button-input-reset"
+            @click="resetFocusDuration"
           >
             <Icon icon="material-symbols:reset-wrench-rounded" />
           </button>
@@ -91,6 +100,7 @@ function saveSettings () {
 
           <button
             class="button-input-reset"
+            @click="resetBreakDuration"
           >
             <Icon icon="material-symbols:reset-wrench-rounded" />
           </button>

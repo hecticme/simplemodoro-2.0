@@ -4,6 +4,9 @@ import { ref } from 'vue'
 // Import stores.
 import { usePomodoroStore } from '@/stores/pomodoro'
 
+// Import components.
+import { Icon } from '@iconify/vue'
+
 defineProps({
   isOpen: {
     type: Boolean,
@@ -51,13 +54,22 @@ function saveSettings () {
         >
           Focus session duration
         </label>
-        <input
-          v-model="focusDuration"
-          type="number"
-          id="focus-duration"
-          name="focus-duration"
-          class="input-session"
-        />
+
+        <div class="input-container">
+          <input
+            v-model="focusDuration"
+            type="number"
+            id="focus-duration"
+            name="focus-duration"
+            class="input-session"
+          />
+
+          <button
+            class="button-input-reset"
+          >
+            <Icon icon="material-symbols:reset-wrench-rounded" />
+          </button>
+        </div>
       </div>
 
       <div class="input-section">
@@ -67,13 +79,22 @@ function saveSettings () {
         >
           Break session duration
         </label>
-        <input
-          v-model="breakDuration"
-          type="number"
-          id="break-duration"
-          name="break-duration"
-          class="input-session"
-        />
+
+        <div class="input-container">
+          <input
+            v-model="breakDuration"
+            type="number"
+            id="break-duration"
+            name="break-duration"
+            class="input-session"
+          />
+
+          <button
+            class="button-input-reset"
+          >
+            <Icon icon="material-symbols:reset-wrench-rounded" />
+          </button>
+        </div>
       </div>
 
       <button
@@ -138,11 +159,46 @@ function saveSettings () {
   color: var(--color-white-100);
 }
 
+.input-container {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.6rem 0.6rem;
+  background-color: var(--color-white-100);
+  border-radius: 4px;
+}
+
+.input-container:focus-within {
+  outline: 2px solid var(--color-black-900);
+  outline-offset: -3px;
+}
+
 .input-session {
   font-size: 1rem;
   border: none;
-  border-radius: 4px;
-  padding: 0.75rem 0.5rem;
+}
+
+.input-session:focus {
+  outline: none;
+}
+
+.button-input-reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  color: var(--color-white-100);
+  background-color: var(--color-black-900);
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition-property: color, background-color, outline;
+  transition-duration: 150ms;
+  transition-timing-function: var(--transition-cubic-bezier);
+}
+
+.button-input-reset:is(:hover, :focus-visible) {
+  color: var(--color-black-900);
+  background-color: var(--color-white-100);
+  outline: 1px solid var(--color-black-900);
 }
 
 .settings-save {

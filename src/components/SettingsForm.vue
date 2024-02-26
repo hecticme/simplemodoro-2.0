@@ -238,6 +238,7 @@ function onAfterLeave () {
 .input-session {
   font-size: 1rem;
   border: none;
+  min-width: 12.5rem;
 }
 
 .input-session:focus {

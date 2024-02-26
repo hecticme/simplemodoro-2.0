@@ -3,11 +3,14 @@ import { defineStore } from 'pinia'
 
 export const usePomodoroStore = defineStore('pomodoro', () => {
   // Session durations.
+  const defaultFocusDuration = 25 * 60
+  const defaultBreakDuration = 5 * 60
+
   const localFocusDuration = localStorage.getItem('focusDuration')
   const localBreakDuration = localStorage.getItem('breakDuration')
 
-  const focusDuration = ref(Number(localFocusDuration) || 25 * 60)
-  const breakDuration = ref(Number(localBreakDuration) || 5 * 60)
+  const focusDuration = ref(Number(localFocusDuration) || defaultFocusDuration)
+  const breakDuration = ref(Number(localBreakDuration) || defaultBreakDuration)
 
   /**
    * @param {number} duration - Focus session duration.

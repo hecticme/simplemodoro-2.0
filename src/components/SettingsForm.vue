@@ -44,7 +44,7 @@ function saveSettings () {
     ></div>
 
     <div class="settings-form">
-      <div class="input-container">
+      <div class="input-section">
         <label
           for="focus-duration"
           class="label"
@@ -60,7 +60,7 @@ function saveSettings () {
         />
       </div>
 
-      <div class="input-container">
+      <div class="input-section">
         <label
           for="break-duration"
           class="label"
@@ -127,7 +127,7 @@ function saveSettings () {
   opacity: 0;
 }
 
-.input-container {
+.input-section {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;

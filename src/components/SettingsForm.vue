@@ -38,6 +38,41 @@ function saveSettings () {
   pomodoro.setBreakDuration(breakDuration.value * 60)
 }
 
+// Handle min and max value for sessions' duration.
+function handleBlurFocusDuration (event) {
+  const minValue = 10
+  const maxValue = 240
+
+  const durationValue = event.target.value
+
+  if (durationValue < minValue) {
+    focusDuration.value = minValue
+
+    return
+  }
+
+  if (durationValue > maxValue) {
+    focusDuration.value = maxValue
+  }
+}
+
+function handleBlurBreakDuration (event) {
+  const minValue = 1
+  const maxValue = 15
+
+  const durationValue = event.target.value
+
+  if (durationValue < minValue) {
+    breakDuration.value = minValue
+
+    return
+  }
+
+  if (durationValue > maxValue) {
+    breakDuration.value = maxValue
+  }
+}
+
 // Reset sessions' duration on modal closing if settings are not saved.
 function onAfterLeave () {
   if (focusDuration.value * 60 !== pomodoro.focusDuration) {
@@ -78,6 +113,7 @@ function onAfterLeave () {
         <div class="input-container">
           <input
             v-model="focusDuration"
+            @blur="handleBlurFocusDuration"
             type="number"
             min="10"
             max="240"
@@ -106,6 +142,7 @@ function onAfterLeave () {
         <div class="input-container">
           <input
             v-model="breakDuration"
+            @blur="handleBlurBreakDuration"
             type="number"
             min="1"
             max="15"

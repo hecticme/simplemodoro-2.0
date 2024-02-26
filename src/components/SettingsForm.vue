@@ -37,12 +37,24 @@ function saveSettings () {
   pomodoro.setFocusDuration(focusDuration.value * 60)
   pomodoro.setBreakDuration(breakDuration.value * 60)
 }
+
+// Reset sessions' duration on modal closing if settings are not saved.
+function onAfterLeave () {
+  if (focusDuration.value * 60 !== pomodoro.focusDuration) {
+    focusDuration.value = pomodoro.focusDuration / 60
+  }
+
+  if (breakDuration.value * 60 !== pomodoro.breakDuration) {
+    breakDuration.value = pomodoro.breakDuration / 60
+  }
+}
 </script>
 
 <template>
 <Transition
   name="fly-in"
   :duration="250"
+  @after-leave="onAfterLeave"
 >
   <section
     v-if="isOpen"

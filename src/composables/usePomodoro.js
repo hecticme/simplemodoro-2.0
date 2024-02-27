@@ -15,6 +15,15 @@ export default function usePomodoro () {
 
   const isPaused = computed(() => intervalId.value === null)
 
+  // Play notification sound.
+  const notificationSound = new Audio('/sounds/notification-sound.mp3')
+
+  function playNotificationSound () {
+    notificationSound.currentTime = 0
+    notificationSound.play()
+  }
+
+  // Reflect changes on focus duration if the countdown is not active.
   watch(
     () => pomodoro.focusDuration,
     () => {
@@ -49,6 +58,8 @@ export default function usePomodoro () {
         timeLeftMark.value = pomodoro.breakDuration
         resumeTime.value = Date.now()
 
+        playNotificationSound()
+
         pomodoro.setIsBreak(true)
         document.title = 'Finished 🙌!'
 
@@ -57,6 +68,8 @@ export default function usePomodoro () {
 
       timeLeft.value = pomodoro.focusDuration
       timeLeftMark.value = pomodoro.focusDuration
+
+      playNotificationSound()
 
       clearCountdownInterval()
       pomodoro.setIsBreak(false)

@@ -80,6 +80,7 @@ export default function usePomodoro () {
 
   function pause () {
     timeLeftMark.value = timeLeft.value
+    document.title = 'Paused 👾'
 
     clearCountdownInterval()
   }

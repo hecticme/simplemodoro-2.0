@@ -18,10 +18,10 @@ const {
 
 <template>
 <section class="pomodoro">
-  <TheCountdown :timeLeft="timeLeft" />
+  <TheCountdown :time-left="timeLeft" />
 
   <ThePlaybackControls
-    :isPaused="isPaused"
+    :is-paused="isPaused"
     @resume="resume"
     @pause="pause"
     @reset="reset"

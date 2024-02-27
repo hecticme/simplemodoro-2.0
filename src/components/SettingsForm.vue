@@ -190,7 +190,6 @@ function onAfterLeave () {
 .settings-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: var(--color-black-900);
   gap: 1.5rem;
   padding: 1.75rem 2.5rem;
@@ -238,6 +237,7 @@ function onAfterLeave () {
 .input-session {
   font-size: 1rem;
   border: none;
+  flex: 1;
   min-width: 12.5rem;
 }
 
@@ -266,6 +266,7 @@ function onAfterLeave () {
 }
 
 .settings-save {
+  align-self: center;
   width: fit-content;
   padding: 0.625rem 2.75rem;
   margin-block-start: 0.5rem;

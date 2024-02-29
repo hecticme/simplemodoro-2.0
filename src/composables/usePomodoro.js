@@ -51,42 +51,7 @@ export default function usePomodoro () {
     isPaused.value = false
     resumeTime.value = Date.now()
 
-    intervalId.value = setInterval(() => {
-      const timePassed = (Date.now() - resumeTime.value) / 1000
-      const remainingTime = Math.ceil(timeLeftMark.value - timePassed)
-
-      if (remainingTime >= 0) {
-        timeLeft.value = remainingTime
-
-        const sessionName = pomodoro.isBreak ? 'Break 🔵' : 'Focus 🔥'
-        document.title = `${sessionName} - ${formatTime(remainingTime)}`
-
-        return
-      }
-
-      if (!pomodoro.isBreak) {
-        timeLeft.value = pomodoro.breakDuration
-        timeLeftMark.value = pomodoro.breakDuration
-        resumeTime.value = Date.now()
-
-        playNotificationSound()
-
-        pomodoro.setIsBreak(true)
-        document.title = 'Finished 🙌!'
-
-        return
-      }
-
-      timeLeft.value = pomodoro.focusDuration
-      timeLeftMark.value = pomodoro.focusDuration
-
-      playNotificationSound()
-
-      clearCountdownInterval()
-      pomodoro.setIsBreak(false)
-
-      document.title = 'Simplemodoro'
-    }, 500)
+    intervalId.value = setInterval(countdownTick, 500)
   }
 
   function pause () {
@@ -112,6 +77,42 @@ export default function usePomodoro () {
   function clearCountdownInterval () {
     clearInterval(intervalId.value)
     intervalId.value = null
+  }
+
+  function countdownTick () {
+    const timePassed = (Date.now() - resumeTime.value) / 1000
+    const remainingTime = Math.ceil(timeLeftMark.value - timePassed)
+
+    if (remainingTime >= 0) {
+      timeLeft.value = remainingTime
+
+      const sessionName = pomodoro.isBreak ? 'Break 🔵' : 'Focus 🔥'
+      document.title = `${sessionName} - ${formatTime(remainingTime)}`
+
+      return
+    }
+
+    if (!pomodoro.isBreak) {
+      timeLeft.value = pomodoro.breakDuration
+      timeLeftMark.value = pomodoro.breakDuration
+      resumeTime.value = Date.now()
+
+      playNotificationSound()
+      pomodoro.setIsBreak(true)
+
+      document.title = 'Finished 🙌!'
+
+      return
+    }
+
+    timeLeft.value = pomodoro.focusDuration
+    timeLeftMark.value = pomodoro.focusDuration
+
+    playNotificationSound()
+    clearCountdownInterval()
+    pomodoro.setIsBreak(false)
+
+    document.title = 'Simplemodoro'
   }
 
   return {

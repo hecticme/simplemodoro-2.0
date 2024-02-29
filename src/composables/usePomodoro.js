@@ -43,7 +43,7 @@ export default function usePomodoro () {
     : null
 
   countdownWorker.onmessage = () => {
-    console.log('Tick!')
+    countdownTick()
   }
 
   // Playback functions.
@@ -51,7 +51,11 @@ export default function usePomodoro () {
     isPaused.value = false
     resumeTime.value = Date.now()
 
-    intervalId.value = setInterval(countdownTick, 500)
+    if (hasWebWorker) {
+      countdownWorker.postMessage('start')
+    } else {
+      intervalId.value = setInterval(countdownTick, 500)
+    }
   }
 
   function pause () {

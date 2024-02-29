@@ -36,6 +36,16 @@ export default function usePomodoro () {
     }
   )
 
+  // Web worker to avoid throttling. Use it set interval if the browser supports it.
+  const hasWebWorker = Boolean(window.Worker)
+  const countdownWorker = hasWebWorker
+    ? new Worker(new URL('@/workers/countdownWorker', import.meta.url))
+    : null
+
+  countdownWorker.onmessage = () => {
+    console.log('Tick!')
+  }
+
   // Playback functions.
   function resume () {
     resumeTime.value = Date.now()

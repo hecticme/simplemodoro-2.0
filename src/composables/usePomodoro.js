@@ -1,4 +1,4 @@
-import { ref, computed, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { usePomodoroStore } from '@/stores/pomodoro'
 import formatTime from '@/utils/formatTime'
 
@@ -13,7 +13,7 @@ export default function usePomodoro () {
   const intervalId = ref(null)
   const resumeTime = ref(null)
 
-  const isPaused = computed(() => intervalId.value === null)
+  const isPaused = ref(true)
 
   // Play notification sound.
   const notificationSound = new Audio('/sounds/notification-sound.mp3')
@@ -48,6 +48,7 @@ export default function usePomodoro () {
 
   // Playback functions.
   function resume () {
+    isPaused.value = false
     resumeTime.value = Date.now()
 
     intervalId.value = setInterval(() => {
@@ -90,6 +91,7 @@ export default function usePomodoro () {
 
   function pause () {
     timeLeftMark.value = timeLeft.value
+    isPaused.value = true
     document.title = 'Paused 👾'
 
     clearCountdownInterval()
@@ -100,6 +102,7 @@ export default function usePomodoro () {
     timeLeftMark.value = pomodoro.focusDuration
 
     clearCountdownInterval()
+    isPaused.value = true
     pomodoro.setIsBreak(false)
 
     document.title = 'Simplemodoro'

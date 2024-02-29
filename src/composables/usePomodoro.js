@@ -1,4 +1,4 @@
-import { ref, computed, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { usePomodoroStore } from '@/stores/pomodoro'
 import formatTime from '@/utils/formatTime'
 
@@ -13,7 +13,7 @@ export default function usePomodoro () {
   const intervalId = ref(null)
   const resumeTime = ref(null)
 
-  const isPaused = computed(() => intervalId.value === null)
+  const isPaused = ref(true)
 
   // Play notification sound.
   const notificationSound = new Audio('/sounds/notification-sound.mp3')
@@ -36,50 +36,31 @@ export default function usePomodoro () {
     }
   )
 
+  // Web worker to avoid throttling. Use it set interval if the browser supports it.
+  const hasWebWorker = Boolean(window.Worker)
+  const countdownWorker = hasWebWorker
+    ? new Worker(new URL('@/workers/countdownWorker', import.meta.url))
+    : null
+
+  countdownWorker.onmessage = () => {
+    countdownTick()
+  }
+
   // Playback functions.
   function resume () {
+    isPaused.value = false
     resumeTime.value = Date.now()
 
-    intervalId.value = setInterval(() => {
-      const timePassed = (Date.now() - resumeTime.value) / 1000
-      const remainingTime = Math.ceil(timeLeftMark.value - timePassed)
-
-      if (remainingTime >= 0) {
-        timeLeft.value = remainingTime
-
-        const sessionName = pomodoro.isBreak ? 'Break 🔵' : 'Focus 🔥'
-        document.title = `${sessionName} - ${formatTime(remainingTime)}`
-
-        return
-      }
-
-      if (!pomodoro.isBreak) {
-        timeLeft.value = pomodoro.breakDuration
-        timeLeftMark.value = pomodoro.breakDuration
-        resumeTime.value = Date.now()
-
-        playNotificationSound()
-
-        pomodoro.setIsBreak(true)
-        document.title = 'Finished 🙌!'
-
-        return
-      }
-
-      timeLeft.value = pomodoro.focusDuration
-      timeLeftMark.value = pomodoro.focusDuration
-
-      playNotificationSound()
-
-      clearCountdownInterval()
-      pomodoro.setIsBreak(false)
-
-      document.title = 'Simplemodoro'
-    }, 500)
+    if (hasWebWorker) {
+      countdownWorker.postMessage('start')
+    } else {
+      intervalId.value = setInterval(countdownTick, 500)
+    }
   }
 
   function pause () {
     timeLeftMark.value = timeLeft.value
+    isPaused.value = true
     document.title = 'Paused 👾'
 
     clearCountdownInterval()
@@ -90,6 +71,7 @@ export default function usePomodoro () {
     timeLeftMark.value = pomodoro.focusDuration
 
     clearCountdownInterval()
+    isPaused.value = true
     pomodoro.setIsBreak(false)
 
     document.title = 'Simplemodoro'
@@ -97,8 +79,48 @@ export default function usePomodoro () {
 
   // Reusable functions specific to this composable.
   function clearCountdownInterval () {
-    clearInterval(intervalId.value)
-    intervalId.value = null
+    if (hasWebWorker) {
+      countdownWorker.postMessage('clear')
+    } else {
+      clearInterval(intervalId.value)
+      intervalId.value = null
+    }
+  }
+
+  function countdownTick () {
+    const timePassed = (Date.now() - resumeTime.value) / 1000
+    const remainingTime = Math.ceil(timeLeftMark.value - timePassed)
+
+    if (remainingTime >= 0) {
+      timeLeft.value = remainingTime
+
+      const sessionName = pomodoro.isBreak ? 'Break 🔵' : 'Focus 🔥'
+      document.title = `${sessionName} - ${formatTime(remainingTime)}`
+
+      return
+    }
+
+    if (!pomodoro.isBreak) {
+      timeLeft.value = pomodoro.breakDuration
+      timeLeftMark.value = pomodoro.breakDuration
+      resumeTime.value = Date.now()
+
+      playNotificationSound()
+      pomodoro.setIsBreak(true)
+
+      document.title = 'Finished 🙌!'
+
+      return
+    }
+
+    timeLeft.value = pomodoro.focusDuration
+    timeLeftMark.value = pomodoro.focusDuration
+
+    playNotificationSound()
+    clearCountdownInterval()
+    pomodoro.setIsBreak(false)
+
+    document.title = 'Simplemodoro'
   }
 
   return {

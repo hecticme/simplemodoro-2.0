@@ -79,8 +79,12 @@ export default function usePomodoro () {
 
   // Reusable functions specific to this composable.
   function clearCountdownInterval () {
-    clearInterval(intervalId.value)
-    intervalId.value = null
+    if (hasWebWorker) {
+      countdownWorker.postMessage('clear')
+    } else {
+      clearInterval(intervalId.value)
+      intervalId.value = null
+    }
   }
 
   function countdownTick () {

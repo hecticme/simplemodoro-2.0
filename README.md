@@ -1,8 +1,16 @@
-## simplemodoro-2.0
+<h1 align="center">
+  <code>⏳️ Simplemodoro2.0</code>
+</h1>
+
+<p align="center">
+  <a href="https://simplemodoro-2-0.pages.dev/">
+    Live page
+  </a>  
+</p>
 
 This is the second version of my simple pomodoro app. It's built with Vue this time. I tried to keep it simple.
 
-## `For development`:
+## For development
 
 #### Recommended IDE Setup
 

@@ -68,14 +68,6 @@ module.exports = {
       'error',
       'always',
     ],
-    'vue/html-indent': [
-      'error',
-      2,
-    ],
-    'vue/padding-line-between-blocks': [
-      'error',
-      'always',
-    ],
     'vue/component-tags-order': [
       'error',
       {
@@ -85,6 +77,14 @@ module.exports = {
           'style',
         ],
       },
+    ],
+    'vue/html-indent': [
+      'error',
+      2,
+    ],
+    'vue/padding-line-between-blocks': [
+      'error',
+      'always',
     ],
   },
 }

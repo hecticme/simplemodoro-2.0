@@ -68,5 +68,9 @@ module.exports = {
       'error',
       'always',
     ],
+    'vue/html-indent': [
+      'error',
+      2,
+    ],
   },
 }

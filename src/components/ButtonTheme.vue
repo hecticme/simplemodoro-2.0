@@ -21,8 +21,8 @@ const iconThemeName = computed(() => theme.isDarkTheme
     @click="theme.toggleDarkTheme"
   >
     <Icon
-      :icon="iconThemeName"
       class="icon-theme"
+      :icon="iconThemeName"
     />
   </button>
 </template>

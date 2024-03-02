@@ -68,5 +68,29 @@ module.exports = {
       'error',
       'always',
     ],
+    'vue/attributes-order': [
+      'error',
+      {
+        alphabetical: true,
+      },
+    ],
+    'vue/component-tags-order': [
+      'error',
+      {
+        order: [
+          'script',
+          'template',
+          'style',
+        ],
+      },
+    ],
+    'vue/html-indent': [
+      'error',
+      2,
+    ],
+    'vue/padding-line-between-blocks': [
+      'error',
+      'always',
+    ],
   },
 }

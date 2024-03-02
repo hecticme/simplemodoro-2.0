@@ -15,21 +15,21 @@ defineEmits([
 </script>
 
 <template>
-<button
-  @click="$emit('toggleSettingsForm')"
-  class="button-settings"
->
-  <span>
-    Set duration
-  </span>
+  <button
+    class="button-settings"
+    @click="$emit('toggleSettingsForm')"
+  >
+    <span>
+      Set duration
+    </span>
 
-  <div class="icon-settings-wrapper">
-    <Icon
-      icon="material-symbols:settings-rounded"
-      class="icon-settings"
-    />
-  </div>
-</button>
+    <div class="icon-settings-wrapper">
+      <Icon
+        class="icon-settings"
+        icon="material-symbols:settings-rounded"
+      />
+    </div>
+  </button>
 </template>
 
 <style scoped>

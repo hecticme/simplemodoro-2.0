@@ -5,9 +5,9 @@ const message = ref('Hello! Under construction 🚧')
 </script>
 
 <template>
-<h2 class="message">
-  {{ message }}
-</h2>
+  <h2 class="message">
+    {{ message }}
+  </h2>
 </template>
 
 <style scoped>

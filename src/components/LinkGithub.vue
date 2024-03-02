@@ -3,14 +3,14 @@ import IconGithubMark from '../assets/icons/IconGithubMark.vue'
 </script>
 
 <template>
-<a
-  href="https://github.com/hecticme/simplemodoro-2.0"
-  target="_blank"
-  rel="noreferrer"
-  class="icon-github-container"
->
-  <IconGithubMark class="icon-github" />
-</a>
+  <a
+    class="icon-github-container"
+    href="https://github.com/hecticme/simplemodoro-2.0"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <IconGithubMark class="icon-github" />
+  </a>
 </template>
 
 <style scoped>

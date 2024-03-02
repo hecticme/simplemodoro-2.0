@@ -4,15 +4,15 @@ import LinkGithub from './LinkGithub.vue'
 </script>
 
 <template>
-<header class="header">
-  <p class="logo-text">Simplemodoro.</p>
+  <header class="header">
+    <p class="logo-text">Simplemodoro.</p>
 
-  <div class="header-utils">
-    <ButtonTheme />
+    <div class="header-utils">
+      <ButtonTheme />
 
-    <LinkGithub />
-  </div>
-</header>
+      <LinkGithub />
+    </div>
+  </header>
 </template>
 
 <style scoped>

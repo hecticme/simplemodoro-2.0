@@ -13,17 +13,17 @@ function toggleSettingsForm () {
 </script>
 
 <template>
-<div class="settings">
-  <SettingsButton
-    :is-open="isOpen"
-    @toggle-settings-form="toggleSettingsForm"
-  />
+  <div class="settings">
+    <SettingsButton
+      :is-open="isOpen"
+      @toggle-settings-form="toggleSettingsForm"
+    />
 
-  <SettingsForm
-    :is-open="isOpen"
-    @toggle-settings-form="toggleSettingsForm"
-  />
-</div>
+    <SettingsForm
+      :is-open="isOpen"
+      @toggle-settings-form="toggleSettingsForm"
+    />
+  </div>
 </template>
 
 <style scoped>

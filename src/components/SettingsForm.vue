@@ -86,89 +86,89 @@ function onAfterLeave () {
 </script>
 
 <template>
-<Transition
-  name="fly-in"
-  :duration="250"
-  @after-leave="onAfterLeave"
->
-  <section
-    v-if="isOpen"
-    class="settings-form-wrapper"
+  <Transition
+    name="fly-in"
+    :duration="250"
+    @after-leave="onAfterLeave"
   >
-    <!-- This `div` is for turning off the modal when clicking outside -->
-    <div
-      @click="$emit('toggleSettingsForm')"
-      class="settings-background"
-    ></div>
+    <section
+      v-if="isOpen"
+      class="settings-form-wrapper"
+    >
+      <!-- This `div` is for turning off the modal when clicking outside -->
+      <div
+        @click="$emit('toggleSettingsForm')"
+        class="settings-background"
+      ></div>
 
-    <div class="settings-form">
-      <div class="input-section">
-        <label
-          for="focus-duration"
-          class="label"
-        >
-          Focus session duration
-        </label>
-
-        <div class="input-container">
-          <input
-            v-model="focusDuration"
-            @blur="handleBlurFocusDuration"
-            type="number"
-            min="10"
-            max="240"
-            id="focus-duration"
-            name="focus-duration"
-            class="input-session"
-          />
-
-          <button
-            class="button-input-reset"
-            @click="resetFocusDuration"
+      <div class="settings-form">
+        <div class="input-section">
+          <label
+            for="focus-duration"
+            class="label"
           >
-            <Icon icon="material-symbols:reset-wrench-rounded" />
-          </button>
+            Focus session duration
+          </label>
+
+          <div class="input-container">
+            <input
+              v-model="focusDuration"
+              @blur="handleBlurFocusDuration"
+              type="number"
+              min="10"
+              max="240"
+              id="focus-duration"
+              name="focus-duration"
+              class="input-session"
+            />
+
+            <button
+              class="button-input-reset"
+              @click="resetFocusDuration"
+            >
+              <Icon icon="material-symbols:reset-wrench-rounded" />
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="input-section">
-        <label
-          for="break-duration"
-          class="label"
-        >
-          Break session duration
-        </label>
-
-        <div class="input-container">
-          <input
-            v-model="breakDuration"
-            @blur="handleBlurBreakDuration"
-            type="number"
-            min="1"
-            max="15"
-            id="break-duration"
-            name="break-duration"
-            class="input-session"
-          />
-
-          <button
-            class="button-input-reset"
-            @click="resetBreakDuration"
+        <div class="input-section">
+          <label
+            for="break-duration"
+            class="label"
           >
-            <Icon icon="material-symbols:reset-wrench-rounded" />
-          </button>
-        </div>
-      </div>
+            Break session duration
+          </label>
 
-      <button
-        @click="saveSettings"
-        class="settings-save"
-      >
-        Save
-      </button>
-    </div>
-  </section>
-</Transition>
+          <div class="input-container">
+            <input
+              v-model="breakDuration"
+              @blur="handleBlurBreakDuration"
+              type="number"
+              min="1"
+              max="15"
+              id="break-duration"
+              name="break-duration"
+              class="input-session"
+            />
+
+            <button
+              class="button-input-reset"
+              @click="resetBreakDuration"
+            >
+              <Icon icon="material-symbols:reset-wrench-rounded" />
+            </button>
+          </div>
+        </div>
+
+        <button
+          @click="saveSettings"
+          class="settings-save"
+        >
+          Save
+        </button>
+      </div>
+    </section>
+  </Transition>
 </template>
 
 <style scope>

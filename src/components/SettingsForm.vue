@@ -87,8 +87,8 @@ function onAfterLeave () {
 
 <template>
   <Transition
-    name="fly-in"
     :duration="250"
+    name="fly-in"
     @after-leave="onAfterLeave"
   >
     <section
@@ -97,29 +97,29 @@ function onAfterLeave () {
     >
       <!-- This `div` is for turning off the modal when clicking outside -->
       <div
-        @click="$emit('toggleSettingsForm')"
         class="settings-background"
+        @click="$emit('toggleSettingsForm')"
       ></div>
 
       <div class="settings-form">
         <div class="input-section">
           <label
-            for="focus-duration"
             class="label"
+            for="focus-duration"
           >
             Focus session duration
           </label>
 
           <div class="input-container">
             <input
-              v-model="focusDuration"
-              @blur="handleBlurFocusDuration"
-              type="number"
-              min="10"
-              max="240"
               id="focus-duration"
-              name="focus-duration"
+              v-model="focusDuration"
               class="input-session"
+              max="240"
+              min="10"
+              name="focus-duration"
+              type="number"
+              @blur="handleBlurFocusDuration"
             />
 
             <button
@@ -133,22 +133,22 @@ function onAfterLeave () {
 
         <div class="input-section">
           <label
-            for="break-duration"
             class="label"
+            for="break-duration"
           >
             Break session duration
           </label>
 
           <div class="input-container">
             <input
-              v-model="breakDuration"
-              @blur="handleBlurBreakDuration"
-              type="number"
-              min="1"
-              max="15"
               id="break-duration"
-              name="break-duration"
+              v-model="breakDuration"
               class="input-session"
+              max="15"
+              min="1"
+              name="break-duration"
+              type="number"
+              @blur="handleBlurBreakDuration"
             />
 
             <button
@@ -161,8 +161,8 @@ function onAfterLeave () {
         </div>
 
         <button
-          @click="saveSettings"
           class="settings-save"
+          @click="saveSettings"
         >
           Save
         </button>

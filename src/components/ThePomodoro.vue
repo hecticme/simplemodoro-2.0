@@ -22,9 +22,9 @@ const {
 
     <ThePlaybackControls
       :is-paused="isPaused"
-      @resume="resume"
       @pause="pause"
       @reset="reset"
+      @resume="resume"
     />
   </section>
 </template>

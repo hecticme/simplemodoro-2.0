@@ -16,8 +16,8 @@ defineEmits([
 
 <template>
   <button
-    @click="$emit('toggleSettingsForm')"
     class="button-settings"
+    @click="$emit('toggleSettingsForm')"
   >
     <span>
       Set duration
@@ -25,8 +25,8 @@ defineEmits([
 
     <div class="icon-settings-wrapper">
       <Icon
-        icon="material-symbols:settings-rounded"
         class="icon-settings"
+        icon="material-symbols:settings-rounded"
       />
     </div>
   </button>

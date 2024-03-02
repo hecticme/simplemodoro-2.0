@@ -37,13 +37,13 @@ function handleResetCountdown () {
           }"
         >
           <Icon
-            icon="material-symbols:play-arrow-rounded"
             class="playback-icon"
+            icon="material-symbols:play-arrow-rounded"
           />
 
           <Icon
-            icon="material-symbols:pause-rounded"
             class="playback-icon"
+            icon="material-symbols:pause-rounded"
           />
         </div>
       </div>
@@ -54,8 +54,8 @@ function handleResetCountdown () {
       @click="handleResetCountdown"
     >
       <Icon
-        icon="material-symbols:restart-alt-rounded"
         class="playback-icon"
+        icon="material-symbols:restart-alt-rounded"
       />
     </button>
   </section>

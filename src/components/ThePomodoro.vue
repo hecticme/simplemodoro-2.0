@@ -17,16 +17,16 @@ const {
 </script>
 
 <template>
-<section class="pomodoro">
-  <TheCountdown :time-left="timeLeft" />
+  <section class="pomodoro">
+    <TheCountdown :time-left="timeLeft" />
 
-  <ThePlaybackControls
-    :is-paused="isPaused"
-    @resume="resume"
-    @pause="pause"
-    @reset="reset"
-  />
-</section>
+    <ThePlaybackControls
+      :is-paused="isPaused"
+      @resume="resume"
+      @pause="pause"
+      @reset="reset"
+    />
+  </section>
 </template>
 
 <style scoped>

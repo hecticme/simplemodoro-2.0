@@ -24,41 +24,41 @@ function handleResetCountdown () {
 </script>
 
 <template>
-<section class="playback-controls">
-  <button
-    class="playback-button button-play"
-    @click="handleResumePause"
-  >
-    <div class="playback-icon-anchor">
-      <div
-        class="playback-icon-wrapper"
-        :class="{
-          'is-paused': isPaused,
-        }"
-      >
-        <Icon
-          icon="material-symbols:play-arrow-rounded"
-          class="playback-icon"
-        />
+  <section class="playback-controls">
+    <button
+      class="playback-button button-play"
+      @click="handleResumePause"
+    >
+      <div class="playback-icon-anchor">
+        <div
+          class="playback-icon-wrapper"
+          :class="{
+            'is-paused': isPaused,
+          }"
+        >
+          <Icon
+            icon="material-symbols:play-arrow-rounded"
+            class="playback-icon"
+          />
 
-        <Icon
-          icon="material-symbols:pause-rounded"
-          class="playback-icon"
-        />
+          <Icon
+            icon="material-symbols:pause-rounded"
+            class="playback-icon"
+          />
+        </div>
       </div>
-    </div>
-  </button>
+    </button>
 
-  <button
-    class="playback-button button-reset"
-    @click="handleResetCountdown"
-  >
-    <Icon
-      icon="material-symbols:restart-alt-rounded"
-      class="playback-icon"
-    />
-  </button>
-</section>
+    <button
+      class="playback-button button-reset"
+      @click="handleResetCountdown"
+    >
+      <Icon
+        icon="material-symbols:restart-alt-rounded"
+        class="playback-icon"
+      />
+    </button>
+  </section>
 </template>
 
 <style scoped>

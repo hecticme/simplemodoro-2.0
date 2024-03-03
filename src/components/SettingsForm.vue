@@ -281,7 +281,7 @@ function onAfterLeave () {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 1rem;
-  row-gap: 0.5rem;
+  row-gap: 0.7rem;
 }
 
 .settings-button {

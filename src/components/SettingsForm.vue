@@ -310,6 +310,11 @@ function onAfterLeave () {
 
 /* For smaller screen. */
 @media screen and (max-width: 37.5em) {
+  .settings-form {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
   .settings-buttons {
     align-self: stretch;
     grid-template-columns: 1fr;

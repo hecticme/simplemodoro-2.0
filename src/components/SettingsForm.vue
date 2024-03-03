@@ -309,7 +309,7 @@ function onAfterLeave () {
 }
 
 
-@media screen and (max-width: 37.5rem) {
+@media screen and (max-width: 37.5em) {
   .settings-buttons {
     align-self: stretch;
     grid-template-columns: 1fr;

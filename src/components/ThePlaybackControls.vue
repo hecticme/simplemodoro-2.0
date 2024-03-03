@@ -24,41 +24,41 @@ function handleResetCountdown () {
 </script>
 
 <template>
-<section class="playback-controls">
-  <button
-    class="playback-button button-play"
-    @click="handleResumePause"
-  >
-    <div class="playback-icon-anchor">
-      <div
-        class="playback-icon-wrapper"
-        :class="{
-          'is-paused': isPaused,
-        }"
-      >
-        <Icon
-          icon="material-symbols:play-arrow-rounded"
-          class="playback-icon"
-        />
+  <section class="playback-controls">
+    <button
+      class="playback-button button-play"
+      @click="handleResumePause"
+    >
+      <div class="playback-icon-anchor">
+        <div
+          class="playback-icon-wrapper"
+          :class="{
+            'is-paused': isPaused,
+          }"
+        >
+          <Icon
+            class="playback-icon"
+            icon="material-symbols:play-arrow-rounded"
+          />
 
-        <Icon
-          icon="material-symbols:pause-rounded"
-          class="playback-icon"
-        />
+          <Icon
+            class="playback-icon"
+            icon="material-symbols:pause-rounded"
+          />
+        </div>
       </div>
-    </div>
-  </button>
+    </button>
 
-  <button
-    class="playback-button button-reset"
-    @click="handleResetCountdown"
-  >
-    <Icon
-      icon="material-symbols:restart-alt-rounded"
-      class="playback-icon"
-    />
-  </button>
-</section>
+    <button
+      class="playback-button button-reset"
+      @click="handleResetCountdown"
+    >
+      <Icon
+        class="playback-icon"
+        icon="material-symbols:restart-alt-rounded"
+      />
+    </button>
+  </section>
 </template>
 
 <style scoped>
@@ -73,7 +73,7 @@ function handleResetCountdown () {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2.5rem;
+  padding: 0.625rem;
   aspect-ratio: 1;
   border-radius: 50%;
   color: var(--color-white-100);
@@ -127,5 +127,13 @@ function handleResetCountdown () {
 
 .playback-icon {
   font-size: var(--playback-icon-size);
+}
+
+/* For smaller screen. */
+@media screen and (max-width: 37.5em) {
+  .playback-button {
+    padding: 0.5rem;
+    --playback-icon-size: 1.1rem;
+  }
 }
 </style>

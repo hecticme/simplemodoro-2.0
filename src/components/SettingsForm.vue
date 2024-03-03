@@ -86,89 +86,98 @@ function onAfterLeave () {
 </script>
 
 <template>
-<Transition
-  name="fly-in"
-  :duration="250"
-  @after-leave="onAfterLeave"
->
-  <section
-    v-if="isOpen"
-    class="settings-form-wrapper"
+  <Transition
+    :duration="250"
+    name="fly-in"
+    @after-leave="onAfterLeave"
   >
-    <!-- This `div` is for turning off the modal when clicking outside -->
-    <div
-      @click="$emit('toggleSettingsForm')"
-      class="settings-background"
-    ></div>
+    <section
+      v-if="isOpen"
+      class="settings-form-wrapper"
+    >
+      <!-- This `div` is for turning off the modal when clicking outside -->
+      <div
+        class="settings-background"
+        @click="$emit('toggleSettingsForm')"
+      ></div>
 
-    <div class="settings-form">
-      <div class="input-section">
-        <label
-          for="focus-duration"
-          class="label"
-        >
-          Focus session duration
-        </label>
+      <div class="settings-form">
+        <div class="input-section">
+          <label
+            class="label"
+            for="focus-duration"
+          >
+            Focus session duration
+          </label>
 
-        <div class="input-container">
-          <input
-            v-model="focusDuration"
-            @blur="handleBlurFocusDuration"
-            type="number"
-            min="10"
-            max="240"
-            id="focus-duration"
-            name="focus-duration"
-            class="input-session"
-          />
+          <div class="input-container">
+            <input
+              id="focus-duration"
+              v-model="focusDuration"
+              class="input-session"
+              max="240"
+              min="10"
+              name="focus-duration"
+              type="number"
+              @blur="handleBlurFocusDuration"
+            />
+
+            <button
+              class="button-input-reset"
+              @click="resetFocusDuration"
+            >
+              <Icon icon="material-symbols:reset-wrench-rounded" />
+            </button>
+          </div>
+        </div>
+
+        <div class="input-section">
+          <label
+            class="label"
+            for="break-duration"
+          >
+            Break session duration
+          </label>
+
+          <div class="input-container">
+            <input
+              id="break-duration"
+              v-model="breakDuration"
+              class="input-session"
+              max="15"
+              min="1"
+              name="break-duration"
+              type="number"
+              @blur="handleBlurBreakDuration"
+            />
+
+            <button
+              class="button-input-reset"
+              @click="resetBreakDuration"
+            >
+              <Icon icon="material-symbols:reset-wrench-rounded" />
+            </button>
+          </div>
+        </div>
+
+        <div class="settings-buttons">
+          <button
+            class="settings-save settings-button"
+            @click="saveSettings"
+          >
+            Save
+          </button>
 
           <button
-            class="button-input-reset"
-            @click="resetFocusDuration"
+            class="settings-cancel settings-button"
+            @click="$emit('toggleSettingsForm')"
           >
-            <Icon icon="material-symbols:reset-wrench-rounded" />
+            Cancel
           </button>
         </div>
       </div>
-
-      <div class="input-section">
-        <label
-          for="break-duration"
-          class="label"
-        >
-          Break session duration
-        </label>
-
-        <div class="input-container">
-          <input
-            v-model="breakDuration"
-            @blur="handleBlurBreakDuration"
-            type="number"
-            min="1"
-            max="15"
-            id="break-duration"
-            name="break-duration"
-            class="input-session"
-          />
-
-          <button
-            class="button-input-reset"
-            @click="resetBreakDuration"
-          >
-            <Icon icon="material-symbols:reset-wrench-rounded" />
-          </button>
-        </div>
-      </div>
-
-      <button
-        @click="saveSettings"
-        class="settings-save"
-      >
-        Save
-      </button>
-    </div>
-  </section>
-</Transition>
+    </section>
+  </Transition>
 </template>
 
 <style scope>
@@ -190,6 +199,7 @@ function onAfterLeave () {
 .settings-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: var(--color-black-900);
   gap: 1.5rem;
   padding: 1.75rem 2.5rem;
@@ -226,7 +236,7 @@ function onAfterLeave () {
   gap: 0.75rem;
   padding: 0.6rem 0.6rem;
   background-color: var(--color-white-100);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .input-container:focus-within {
@@ -265,11 +275,18 @@ function onAfterLeave () {
   outline: 1px solid var(--color-black-900);
 }
 
-.settings-save {
+.settings-buttons {
   align-self: center;
-  width: fit-content;
-  padding: 0.625rem 2.75rem;
   margin-block-start: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1rem;
+  row-gap: 0.7rem;
+}
+
+.settings-button {
+  padding-inline: 1rem;
+  padding-block: 0.625rem;
   border-radius: 100vh;
   font-weight: 700;
   color: var(--color-white-100);
@@ -279,7 +296,44 @@ function onAfterLeave () {
   transition-timing-function: var(--transition-cubic-bezier);
 }
 
-.settings-save:is(:hover, :focus-visible) {
+.settings-button:is(:hover, :focus-visible) {
   background-color: var(--color-black-700);
 }
+
+.settings-save {
+  background-color: var(--color-teal-500);
+}
+
+.settings-save:is(:hover, :focus-visible) {
+  background-color: var(--color-teal-700);
+}
+
+/* For smaller screen. */
+@media screen and (max-width: 37.5em) {
+  .settings-form {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .settings-buttons {
+    align-self: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .settings-button {
+    border-radius: 8px;
+    padding-block: 1rem;
+  }
+
+  .settings-form {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .input-session {
+    min-width: 0;
+  }
+}
+
 </style>

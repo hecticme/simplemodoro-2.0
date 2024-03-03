@@ -1,5 +1,9 @@
 <script setup>
-import { Icon } from '@iconify/vue'
+// Import components.
+import ButtonPlaybackControl from './ButtonPlaybackControl.vue'
+
+// Import stores.
+import { usePomodoroStore } from '@/stores/pomodoro'
 
 const props = defineProps({
   isPaused: {
@@ -14,6 +18,8 @@ const emit = defineEmits([
   'reset',
 ])
 
+const pomodoro = usePomodoroStore()
+
 function handleResumePause () {
   emit(props.isPaused ? 'resume' : 'pause')
 }
@@ -25,39 +31,23 @@ function handleResetCountdown () {
 
 <template>
   <section class="playback-controls">
-    <button
-      class="playback-button button-play"
+    <ButtonPlaybackControl
+      :icons="[
+        'material-symbols:play-arrow-rounded',
+        'material-symbols:pause-rounded',
+      ]"
+      :is-active="isPaused"
       @click="handleResumePause"
-    >
-      <div class="playback-icon-anchor">
-        <div
-          class="playback-icon-wrapper"
-          :class="{
-            'is-paused': isPaused,
-          }"
-        >
-          <Icon
-            class="playback-icon"
-            icon="material-symbols:play-arrow-rounded"
-          />
+    />
 
-          <Icon
-            class="playback-icon"
-            icon="material-symbols:pause-rounded"
-          />
-        </div>
-      </div>
-    </button>
-
-    <button
-      class="playback-button button-reset"
+    <ButtonPlaybackControl
+      :icons="[
+        'material-symbols:skip-next-rounded',
+        'material-symbols:restart-alt-rounded',
+      ]"
+      :is-active="pomodoro.isBreak"
       @click="handleResetCountdown"
-    >
-      <Icon
-        class="playback-icon"
-        icon="material-symbols:restart-alt-rounded"
-      />
-    </button>
+    />
   </section>
 </template>
 
@@ -66,74 +56,5 @@ function handleResetCountdown () {
   display: flex;
   justify-content: center;
   gap: 1rem;
-}
-
-/* Playback button */
-.playback-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.625rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  color: var(--color-white-100);
-  background-color: var(--color-black-900);
-  transition-property: color, background-color, outline;
-  transition-duration: 250ms;
-  transition-timing-function: var(--transition-cubic-bezier);
-  --playback-icon-size: 1.3rem;
-}
-
-.playback-button:is(:hover, :focus-visible) {
-  color: var(--color-black-900);
-  background-color: var(--color-white-100);
-  outline: 1px solid var(--color-black-900);
-}
-
-.dark .playback-button {
-  color: var(--color-black-800);
-  background-color: var(--color-white-200);
-}
-
-.dark .playback-button:is(:hover, :focus-visible) {
-  color: var(--color-white-200);
-  background-color: var(--color-black-800);
-  outline: 1px solid var(--color-white-200);
-}
-
-/* Playback icon */
-.playback-icon-anchor {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: var(--playback-icon-size);
-  aspect-ratio: 1;
-  overflow: hidden;
-}
-
-.playback-icon-wrapper {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  top: -100%;
-  transition-property: top;
-  transition-duration: 250ms;
-  transition-timing-function: var(--transition-cubic-bezier);
-}
-
-.playback-icon-wrapper.is-paused {
-  top: 0;
-}
-
-.playback-icon {
-  font-size: var(--playback-icon-size);
-}
-
-/* For smaller screen. */
-@media screen and (max-width: 37.5em) {
-  .playback-button {
-    padding: 0.5rem;
-    --playback-icon-size: 1.1rem;
-  }
 }
 </style>

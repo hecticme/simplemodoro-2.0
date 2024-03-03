@@ -199,6 +199,7 @@ function onAfterLeave () {
 .settings-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: var(--color-black-900);
   gap: 1.5rem;
   padding: 1.75rem 2.5rem;
@@ -317,6 +318,12 @@ function onAfterLeave () {
   .settings-button {
     border-radius: 8px;
     padding-block: 1rem;
+  }
+
+  .settings-form {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
   }
 }
 

@@ -97,4 +97,11 @@ defineEmits([
   color: var(--color-white-200);
   background-color: var(--color-black-800);
 }
+
+/* For smaller screen. */
+@media screen and (max-width: 37.5em) {
+  .button-settings {
+    font-size: 0.8rem;
+  }
+}
 </style>

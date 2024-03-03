@@ -325,6 +325,10 @@ function onAfterLeave () {
     height: 100%;
     border-radius: 0;
   }
+
+  .input-session {
+    min-width: 0;
+  }
 }
 
 </style>

@@ -73,7 +73,7 @@ function handleResetCountdown () {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2.5rem;
+  padding: 0.625rem;
   aspect-ratio: 1;
   border-radius: 50%;
   color: var(--color-white-100);
@@ -127,5 +127,13 @@ function handleResetCountdown () {
 
 .playback-icon {
   font-size: var(--playback-icon-size);
+}
+
+/* For smaller screen. */
+@media screen and (max-width: 37.5em) {
+  .playback-button {
+    padding: 0.5rem;
+    --playback-icon-size: 1.1rem;
+  }
 }
 </style>

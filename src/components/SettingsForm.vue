@@ -308,7 +308,7 @@ function onAfterLeave () {
   background-color: var(--color-teal-700);
 }
 
-
+/* For smaller screen. */
 @media screen and (max-width: 37.5em) {
   .settings-buttons {
     align-self: stretch;

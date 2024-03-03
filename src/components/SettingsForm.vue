@@ -274,11 +274,18 @@ function onAfterLeave () {
   outline: 1px solid var(--color-black-900);
 }
 
-.settings-save {
+.settings-buttons {
   align-self: center;
-  width: fit-content;
-  padding: 0.625rem 2.75rem;
   margin-block-start: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+}
+
+.settings-button {
+  padding-inline: 1rem;
+  padding-block: 0.625rem;
   border-radius: 100vh;
   font-weight: 700;
   color: var(--color-white-100);
@@ -288,7 +295,17 @@ function onAfterLeave () {
   transition-timing-function: var(--transition-cubic-bezier);
 }
 
-.settings-save:is(:hover, :focus-visible) {
+.settings-button:is(:hover, :focus-visible) {
   background-color: var(--color-black-700);
 }
+
+.settings-save {
+  background-color: var(--color-teal-500);
+}
+
+.settings-save:is(:hover, :focus-visible) {
+  background-color: var(--color-teal-700);
+}
+
+
 </style>

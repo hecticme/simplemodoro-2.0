@@ -5,7 +5,7 @@ import { ref } from 'vue'
 import { usePomodoroStore } from '@/stores/pomodoro'
 
 // Import components.
-import SettingsInput from './SettingsInput.vue'
+import SettingsFormInput from './SettingsFormInput.vue'
 
 defineProps({
   isOpen: {
@@ -102,7 +102,7 @@ function onAfterLeave () {
       ></div>
 
       <div class="settings-form">
-        <SettingsInput
+        <SettingsFormInput
           v-model="focusDuration"
           input-id="focus-duration"
           input-label="Focus session duration"
@@ -113,7 +113,7 @@ function onAfterLeave () {
           @reset-input="resetFocusDuration"
         />
 
-        <SettingsInput
+        <SettingsFormInput
           v-model="breakDuration"
           input-id="break-duration"
           input-label="Break session duration"

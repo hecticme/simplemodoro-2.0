@@ -226,7 +226,7 @@ function onAfterLeave () {
   gap: 0.75rem;
   padding: 0.6rem 0.6rem;
   background-color: var(--color-white-100);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .input-container:focus-within {

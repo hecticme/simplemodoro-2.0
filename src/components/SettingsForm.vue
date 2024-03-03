@@ -308,4 +308,16 @@ function onAfterLeave () {
 }
 
 
+@media screen and (max-width: 37.5rem) {
+  .settings-buttons {
+    align-self: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .settings-button {
+    border-radius: 8px;
+    padding-block: 1rem;
+  }
+}
+
 </style>

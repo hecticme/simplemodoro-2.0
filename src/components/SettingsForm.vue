@@ -5,7 +5,7 @@ import { ref } from 'vue'
 import { usePomodoroStore } from '@/stores/pomodoro'
 
 // Import components.
-import { Icon } from '@iconify/vue'
+import SettingsInput from './SettingsInput.vue'
 
 defineProps({
   isOpen: {
@@ -102,63 +102,27 @@ function onAfterLeave () {
       ></div>
 
       <div class="settings-form">
-        <div class="input-section">
-          <label
-            class="label"
-            for="focus-duration"
-          >
-            Focus session duration
-          </label>
+        <SettingsInput
+          v-model="focusDuration"
+          input-id="focus-duration"
+          input-label="Focus session duration"
+          max="240"
+          min="10"
+          type="number"
+          @blur="handleBlurFocusDuration"
+          @reset-input="resetFocusDuration"
+        />
 
-          <div class="input-container">
-            <input
-              id="focus-duration"
-              v-model="focusDuration"
-              class="input-session"
-              max="240"
-              min="10"
-              name="focus-duration"
-              type="number"
-              @blur="handleBlurFocusDuration"
-            />
-
-            <button
-              class="button-input-reset"
-              @click="resetFocusDuration"
-            >
-              <Icon icon="material-symbols:reset-wrench-rounded" />
-            </button>
-          </div>
-        </div>
-
-        <div class="input-section">
-          <label
-            class="label"
-            for="break-duration"
-          >
-            Break session duration
-          </label>
-
-          <div class="input-container">
-            <input
-              id="break-duration"
-              v-model="breakDuration"
-              class="input-session"
-              max="15"
-              min="1"
-              name="break-duration"
-              type="number"
-              @blur="handleBlurBreakDuration"
-            />
-
-            <button
-              class="button-input-reset"
-              @click="resetBreakDuration"
-            >
-              <Icon icon="material-symbols:reset-wrench-rounded" />
-            </button>
-          </div>
-        </div>
+        <SettingsInput
+          v-model="breakDuration"
+          input-id="break-duration"
+          input-label="Break session duration"
+          max="15"
+          min="1"
+          type="number"
+          @blur="handleBlurBreakDuration"
+          @reset-input="resetBreakDuration"
+        />
 
         <div class="settings-buttons">
           <button
@@ -220,61 +184,6 @@ function onAfterLeave () {
   opacity: 0;
 }
 
-.input-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.label {
-  font-weight: 700;
-  color: var(--color-white-100);
-}
-
-.input-container {
-  display: flex;
-  gap: 0.75rem;
-  padding: 0.6rem 0.6rem;
-  background-color: var(--color-white-100);
-  border-radius: 8px;
-}
-
-.input-container:focus-within {
-  outline: 2px solid var(--color-black-900);
-  outline-offset: -3px;
-}
-
-.input-session {
-  font-size: 1rem;
-  border: none;
-  flex: 1;
-  min-width: 12.5rem;
-}
-
-.input-session:focus {
-  outline: none;
-}
-
-.button-input-reset {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.25rem;
-  color: var(--color-white-100);
-  background-color: var(--color-black-900);
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition-property: color, background-color, outline;
-  transition-duration: 150ms;
-  transition-timing-function: var(--transition-cubic-bezier);
-}
-
-.button-input-reset:is(:hover, :focus-visible) {
-  color: var(--color-black-900);
-  background-color: var(--color-white-100);
-  outline: 1px solid var(--color-black-900);
-}
-
 .settings-buttons {
   align-self: center;
   margin-block-start: 0.5rem;
@@ -330,10 +239,5 @@ function onAfterLeave () {
     height: 100%;
     border-radius: 0;
   }
-
-  .input-session {
-    min-width: 0;
-  }
 }
-
 </style>

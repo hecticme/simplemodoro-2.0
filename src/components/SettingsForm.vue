@@ -160,12 +160,21 @@ function onAfterLeave () {
           </div>
         </div>
 
-        <button
-          class="settings-save"
-          @click="saveSettings"
-        >
-          Save
-        </button>
+        <div class="settings-buttons">
+          <button
+            class="settings-save settings-button"
+            @click="saveSettings"
+          >
+            Save
+          </button>
+
+          <button
+            class="settings-cancel settings-button"
+            @click="$emit('toggleSettingsForm')"
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </section>
   </Transition>

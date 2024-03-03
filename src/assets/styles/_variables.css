@@ -9,6 +9,8 @@
   /* Other utilities colors: */
   --color-black-700: hsl(0, 0%, 19%);
   --color-gray-100: hsl(0, 0%, 93%);
+  --color-teal-500: hsl(181, 43%, 38%);
+  --color-teal-700: hsl(181, 52%, 28%);
 
   /* Transitions. */
   --transition-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);

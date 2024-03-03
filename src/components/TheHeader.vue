@@ -19,6 +19,7 @@ import LinkGithub from './LinkGithub.vue'
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   margin-block: 1.5rem 2.5rem;
   width: 100%;

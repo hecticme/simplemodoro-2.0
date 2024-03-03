@@ -160,12 +160,21 @@ function onAfterLeave () {
           </div>
         </div>
 
-        <button
-          class="settings-save"
-          @click="saveSettings"
-        >
-          Save
-        </button>
+        <div class="settings-buttons">
+          <button
+            class="settings-save settings-button"
+            @click="saveSettings"
+          >
+            Save
+          </button>
+
+          <button
+            class="settings-cancel settings-button"
+            @click="$emit('toggleSettingsForm')"
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </section>
   </Transition>
@@ -190,6 +199,7 @@ function onAfterLeave () {
 .settings-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: var(--color-black-900);
   gap: 1.5rem;
   padding: 1.75rem 2.5rem;
@@ -226,7 +236,7 @@ function onAfterLeave () {
   gap: 0.75rem;
   padding: 0.6rem 0.6rem;
   background-color: var(--color-white-100);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .input-container:focus-within {
@@ -265,11 +275,18 @@ function onAfterLeave () {
   outline: 1px solid var(--color-black-900);
 }
 
-.settings-save {
+.settings-buttons {
   align-self: center;
-  width: fit-content;
-  padding: 0.625rem 2.75rem;
   margin-block-start: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1rem;
+  row-gap: 0.7rem;
+}
+
+.settings-button {
+  padding-inline: 1rem;
+  padding-block: 0.625rem;
   border-radius: 100vh;
   font-weight: 700;
   color: var(--color-white-100);
@@ -279,7 +296,44 @@ function onAfterLeave () {
   transition-timing-function: var(--transition-cubic-bezier);
 }
 
-.settings-save:is(:hover, :focus-visible) {
+.settings-button:is(:hover, :focus-visible) {
   background-color: var(--color-black-700);
 }
+
+.settings-save {
+  background-color: var(--color-teal-500);
+}
+
+.settings-save:is(:hover, :focus-visible) {
+  background-color: var(--color-teal-700);
+}
+
+/* For smaller screen. */
+@media screen and (max-width: 37.5em) {
+  .settings-form {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .settings-buttons {
+    align-self: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .settings-button {
+    border-radius: 8px;
+    padding-block: 1rem;
+  }
+
+  .settings-form {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .input-session {
+    min-width: 0;
+  }
+}
+
 </style>

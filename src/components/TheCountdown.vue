@@ -23,4 +23,11 @@ const normalizedCountdown = computed(() => formatTime(props.timeLeft))
   font-size: 4.5rem;
   font-weight: 700;
 }
+
+/* For smaller screen. */
+@media screen and (max-width: 37.5em) {
+  .countdown {
+    font-size: 3.5rem;
+  }
+}
 </style>

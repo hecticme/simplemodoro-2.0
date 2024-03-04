@@ -6,6 +6,8 @@ defineOptions({
   inheritAttrs: false,
 })
 
+const model = defineModel()
+
 defineProps({
   inputId: {
     type: String,
@@ -21,7 +23,6 @@ defineEmits([
   'resetInput',
 ])
 
-const model = defineModel()
 </script>
 
 <template>

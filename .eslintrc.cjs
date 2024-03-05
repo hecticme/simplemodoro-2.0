@@ -99,6 +99,9 @@ module.exports = {
     'vue/first-attribute-linebreak': [
       'error',
     ],
+    'vue/html-closing-bracket-newline':[
+      'error',
+    ],
     'vue/html-indent': [
       'error',
       2,

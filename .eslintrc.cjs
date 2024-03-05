@@ -96,6 +96,9 @@ module.exports = {
         ],
       },
     ],
+    'vue/first-attribute-linebreak': [
+      'error',
+    ],
     'vue/html-indent': [
       'error',
       2,

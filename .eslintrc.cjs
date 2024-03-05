@@ -100,6 +100,9 @@ module.exports = {
       'error',
       2,
     ],
+    'vue/max-attributes-per-line': [
+      'error',
+    ],
     'vue/padding-line-between-blocks': [
       'error',
       'always',

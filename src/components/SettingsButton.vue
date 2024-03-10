@@ -1,6 +1,7 @@
 <script setup>
 // Import components.
 import { Icon } from '@iconify/vue'
+import ButtonBase from './ButtonBase.vue'
 
 defineProps({
   isOpen: {
@@ -15,7 +16,7 @@ defineEmits([
 </script>
 
 <template>
-  <button
+  <ButtonBase
     class="button-settings"
     @click="$emit('toggleSettingsForm')"
   >
@@ -29,7 +30,7 @@ defineEmits([
         icon="material-symbols:settings-rounded"
       />
     </div>
-  </button>
+  </ButtonBase>
 </template>
 
 <style scoped>
@@ -42,28 +43,6 @@ defineEmits([
   border-radius: 4px;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--color-white-100);
-  background-color: var(--color-black-900);
-  transition-property: color, background-color, outline;
-  transition-duration: 250ms;
-  transition-timing-function: var(--transition-cubic-bezier);
-}
-
-.button-settings:is(:hover, :focus-visible) {
-  color: var(--color-black-900);
-  background-color: var(--color-white-100);
-  outline: 1px solid var(--color-black-900);
-}
-
-.dark .button-settings {
-  color: var(--color-black-800);
-  background-color: var(--color-white-200);
-}
-
-.dark .button-settings:is(:hover, :focus-visible) {
-  color: var(--color-white-200);
-  background-color: var(--color-black-800);
-  outline: 1px solid var(--color-white-200);
 }
 
 /* Settings icon. */

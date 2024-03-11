@@ -47,8 +47,6 @@ defineEmits([
 
 /* Settings icon. */
 .button-settings:is(:hover, :focus-visible) > .icon-settings-wrapper {
-  color: var(--color-white-100);
-  background-color: var(--color-black-900);
   border-radius: 50%;
   transform: rotate(30deg);
 }
@@ -60,21 +58,20 @@ defineEmits([
   border-radius: 4px;
   aspect-ratio: 1 / 1;
   padding: 0.5rem;
-  color: var(--color-black-900);
-  background-color: var(--color-white-100);
+  color: var(--color-white-100);
+  background-color: var(--color-black-900);
   transition-property: color, background-color, transform, border-radius;
   transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
 }
 
 .dark .button-settings:is(:hover, :focus-visible) > .icon-settings-wrapper {
-  color: var(--color-black-800);
-  background-color: var(--color-white-200);
+  color: var(--color-black-700);
 }
 
 .dark .icon-settings-wrapper {
-  color: var(--color-white-200);
-  background-color: var(--color-black-800);
+  color: var(--color-black-800);
+  background-color: var(--color-white-200);
 }
 
 /* For smaller screen. */

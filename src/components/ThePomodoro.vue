@@ -35,5 +35,6 @@ const {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  margin-block-start: clamp(4rem, 20vh, 10rem);
 }
 </style>

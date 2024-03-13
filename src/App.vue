@@ -5,7 +5,6 @@ import { useThemeStore } from './stores/theme'
 // Import components.
 import ThePomodoro from './components/ThePomodoro.vue'
 import TheHeader from './components/TheHeader.vue'
-import TheMessage from './components/TheMessage.vue'
 import TheSettings from './components/TheSettings.vue'
 
 const theme = useThemeStore()
@@ -20,7 +19,6 @@ const theme = useThemeStore()
   >
     <main class="app-container">
       <TheHeader />
-      <TheMessage />
       <ThePomodoro />
       <TheSettings />
     </main>

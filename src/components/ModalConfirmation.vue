@@ -4,6 +4,7 @@ import { computed } from 'vue'
 import { usePomodoroStore } from '@/stores/pomodoro'
 // Import components.
 import { Icon } from '@iconify/vue'
+import ModalBackground from './ModalBackground.vue'
 
 defineProps({
   isOpened: {
@@ -33,6 +34,8 @@ const modalTitle = computed(() => pomodoro.isBreak
       v-if="isOpened"
       class="modal-pseudo-container"
     >
+      <ModalBackground @click="$emit('toggleModal')"></ModalBackground>
+
       <div class="modal-container">
         <div class="icon-warning">
           <Icon icon="material-symbols:exclamation-rounded"/>

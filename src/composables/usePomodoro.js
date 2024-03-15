@@ -15,6 +15,13 @@ export default function usePomodoro () {
 
   const isPaused = ref(true)
 
+  // Alert the users if they close the website when the countdown is running.
+  window.addEventListener('beforeunload', (e) => {
+    if (!isPaused.value) {
+      e.preventDefault()
+    }
+  })
+
   // Play notification sound.
   const notificationSound = new Audio('/sounds/notification-sound.mp3')
 

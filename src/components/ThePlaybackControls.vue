@@ -1,12 +1,17 @@
 <script setup>
+import { ref } from 'vue'
 // Import components.
 import ButtonPlaybackControl from './ButtonPlaybackControl.vue'
-
+import ModalConfirmation from './ModalConfirmation.vue'
 // Import stores.
 import { usePomodoroStore } from '@/stores/pomodoro'
 
 const props = defineProps({
   isPaused: {
+    type: Boolean,
+    required: true,
+  },
+  hasStarted: {
     type: Boolean,
     required: true,
   },
@@ -24,8 +29,11 @@ function handleResumePause () {
   emit(props.isPaused ? 'resume' : 'pause')
 }
 
-function handleResetCountdown () {
-  emit('reset')
+// Confirm modal open state.
+const confirmModalIsOpened = ref(false)
+
+function toggleModal () {
+  confirmModalIsOpened.value = !confirmModalIsOpened.value
 }
 </script>
 
@@ -41,12 +49,19 @@ function handleResetCountdown () {
     />
 
     <ButtonPlaybackControl
+      :disabled="!hasStarted"
       :icons="[
         'material-symbols:skip-next-rounded',
         'material-symbols:restart-alt-rounded',
       ]"
       :is-active="pomodoro.isBreak"
-      @click="handleResetCountdown"
+      @click="toggleModal"
+    />
+
+    <ModalConfirmation
+      :is-opened="confirmModalIsOpened"
+      @reset="$emit('reset')"
+      @toggle-modal="toggleModal"
     />
   </section>
 </template>

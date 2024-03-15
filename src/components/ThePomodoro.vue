@@ -9,6 +9,7 @@ import ThePlaybackControls from './ThePlaybackControls.vue'
 const {
   timeLeft,
   isPaused,
+  hasStarted,
   resume,
   pause,
   reset,
@@ -21,6 +22,7 @@ const {
     <TheCountdown :time-left="timeLeft" />
 
     <ThePlaybackControls
+      :has-started="hasStarted"
       :is-paused="isPaused"
       @pause="pause"
       @reset="reset"
@@ -35,5 +37,6 @@ const {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  margin-block-start: clamp(4rem, 20vh, 10rem);
 }
 </style>

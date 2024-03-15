@@ -6,6 +6,7 @@ import { usePomodoroStore } from '@/stores/pomodoro'
 
 // Import components.
 import SettingsFormInput from './SettingsFormInput.vue'
+import ModalBackground from './ModalBackground.vue'
 
 defineProps({
   isOpen: {
@@ -95,11 +96,8 @@ function onAfterLeave () {
       v-if="isOpen"
       class="settings-form-wrapper"
     >
-      <!-- This `div` is for turning off the modal when clicking outside -->
-      <div
-        class="settings-background"
-        @click="$emit('toggleSettingsForm')"
-      ></div>
+      <!-- This component is for turning off the modal when clicking outside -->
+      <ModalBackground @click="$emit('toggleSettingsForm')"></ModalBackground>
 
       <div class="settings-form">
         <SettingsFormInput
@@ -151,13 +149,6 @@ function onAfterLeave () {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: hsla(0, 0%, 9%, 0.5);
-  backdrop-filter: blur(4px);
-}
-
-.settings-background {
-  position: absolute;
-  inset: 0;
 }
 
 .settings-form {

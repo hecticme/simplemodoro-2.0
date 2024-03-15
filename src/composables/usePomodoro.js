@@ -1,19 +1,30 @@
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { usePomodoroStore } from '@/stores/pomodoro'
 import formatTime from '@/utils/formatTime'
 
 export default function usePomodoro () {
   const pomodoro = usePomodoroStore()
 
+  /** The countdown interval id used when there's no Web Worker. */
+  const intervalId = ref(null)
   /** Remaining time value to be displayed. Default to focus duration. */
   const timeLeft = ref(pomodoro.focusDuration)
   /** Remaining time value for the next countdown after paused. */
   const timeLeftMark = ref(pomodoro.focusDuration)
-
-  const intervalId = ref(null)
+  /** The timestamp when the resume button was pressed. Used to calculate elapsed time. */
   const resumeTime = ref(null)
 
   const isPaused = ref(true)
+  const hasStarted = computed(() =>
+    pomodoro.isBreak || timeLeft.value !== pomodoro.focusDuration
+  )
+
+  // Alert the users if they close the website when the countdown is running.
+  window.addEventListener('beforeunload', (e) => {
+    if (!isPaused.value) {
+      e.preventDefault()
+    }
+  })
 
   // Play notification sound.
   const notificationSound = new Audio('/sounds/notification-sound.mp3')
@@ -126,6 +137,7 @@ export default function usePomodoro () {
   return {
     timeLeft,
     isPaused,
+    hasStarted,
     resume,
     pause,
     reset,

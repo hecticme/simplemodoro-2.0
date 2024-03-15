@@ -7,11 +7,15 @@
   --color-white-200: hsl(60, 30%, 96%);
   --color-black-800: hsl(195, 6%, 12%);
   /* Other utilities colors: */
-  --color-black-700: hsl(0, 0%, 19%);
-  --color-gray-100: hsl(0, 0%, 93%);
+  --color-black-700: hsl(217, 19%, 27%);
+  --color-gray-100: hsl(220, 14%, 96%);
   --color-teal-500: hsl(181, 43%, 38%);
   --color-teal-700: hsl(181, 52%, 28%);
+  --color-red-600: hsl(0, 72%, 51%);
 
   /* Transitions. */
   --transition-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+  --box-shadow-button-dark: rgba(0, 0, 0, 0.06) 0px 6px 24px 0px, rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
+  --box-shadow-button-light: rgba(255, 255, 255, 0.06) 0px 0px 6px 0px, rgba(255, 255, 255, 0.2) 0px 0px 0px 1px;
+  --box-shadow-modal: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }

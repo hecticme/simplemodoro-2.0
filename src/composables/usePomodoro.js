@@ -5,12 +5,13 @@ import formatTime from '@/utils/formatTime'
 export default function usePomodoro () {
   const pomodoro = usePomodoroStore()
 
+  /** The countdown interval id used when there's no Web Worker. */
+  const intervalId = ref(null)
   /** Remaining time value to be displayed. Default to focus duration. */
   const timeLeft = ref(pomodoro.focusDuration)
   /** Remaining time value for the next countdown after paused. */
   const timeLeftMark = ref(pomodoro.focusDuration)
-
-  const intervalId = ref(null)
+  /** The timestamp when the resume button was pressed. Used to calculate elapsed time. */
   const resumeTime = ref(null)
 
   const isPaused = ref(true)

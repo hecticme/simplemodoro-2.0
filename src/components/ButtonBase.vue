@@ -17,13 +17,7 @@
 .button-base:disabled {
   opacity: 0.4;
   cursor: auto;
-}
-
-.button-base:disabled:is(
-  :hover,
-  :focus-visible
-) {
-  background-color: var(--color-white-100);
+  pointer-events: none;
 }
 
 .button-base:is(:hover, :focus-visible) {

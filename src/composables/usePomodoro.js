@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { usePomodoroStore } from '@/stores/pomodoro'
 import formatTime from '@/utils/formatTime'
 
@@ -15,6 +15,9 @@ export default function usePomodoro () {
   const resumeTime = ref(null)
 
   const isPaused = ref(true)
+  const hasStarted = computed(() =>
+    pomodoro.isBreak || timeLeft.value !== pomodoro.focusDuration
+  )
 
   // Alert the users if they close the website when the countdown is running.
   window.addEventListener('beforeunload', (e) => {
@@ -134,6 +137,7 @@ export default function usePomodoro () {
   return {
     timeLeft,
     isPaused,
+    hasStarted,
     resume,
     pause,
     reset,

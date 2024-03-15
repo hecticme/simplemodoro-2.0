@@ -11,6 +11,10 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
+  hasStarted: {
+    type: Boolean,
+    required: true,
+  },
 })
 
 const emit = defineEmits([
@@ -45,6 +49,7 @@ function toggleModal () {
     />
 
     <ButtonPlaybackControl
+      :disabled="!hasStarted"
       :icons="[
         'material-symbols:skip-next-rounded',
         'material-symbols:restart-alt-rounded',

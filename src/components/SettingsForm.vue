@@ -87,59 +87,58 @@ function onAfterLeave () {
 </script>
 
 <template>
-  <Transition
-    :duration="250"
-    name="fly-in"
-    @after-leave="onAfterLeave"
-  >
-    <section
-      v-if="isOpen"
-      class="settings-form-wrapper"
+  <Teleport to="body">
+    <Transition
+      :duration="250"
+      name="fly-in"
+      @after-leave="onAfterLeave"
     >
-      <!-- This component is for turning off the modal when clicking outside -->
-      <ModalBackground @click="$emit('toggleSettingsForm')"></ModalBackground>
+      <section
+        v-if="isOpen"
+        class="settings-form-wrapper"
+      >
+        <!-- This component is for turning off the modal when clicking outside -->
+        <ModalBackground @click="$emit('toggleSettingsForm')"></ModalBackground>
 
-      <div class="settings-form">
-        <SettingsFormInput
-          v-model="focusDuration"
-          input-id="focus-duration"
-          input-label="Focus session duration"
-          max="240"
-          min="10"
-          type="number"
-          @blur="handleBlurFocusDuration"
-          @reset-input="resetFocusDuration"
-        />
-
-        <SettingsFormInput
-          v-model="breakDuration"
-          input-id="break-duration"
-          input-label="Break session duration"
-          max="15"
-          min="1"
-          type="number"
-          @blur="handleBlurBreakDuration"
-          @reset-input="resetBreakDuration"
-        />
-
-        <div class="settings-buttons">
-          <button
-            class="settings-save settings-button"
-            @click="saveSettings"
-          >
-            Save
-          </button>
-
-          <button
-            class="settings-cancel settings-button"
-            @click="$emit('toggleSettingsForm')"
-          >
-            Cancel
-          </button>
+        <div class="settings-form">
+          <SettingsFormInput
+            v-model="focusDuration"
+            input-id="focus-duration"
+            input-label="Focus session duration"
+            max="240"
+            min="10"
+            type="number"
+            @blur="handleBlurFocusDuration"
+            @reset-input="resetFocusDuration"
+          />
+          <SettingsFormInput
+            v-model="breakDuration"
+            input-id="break-duration"
+            input-label="Break session duration"
+            max="15"
+            min="1"
+            type="number"
+            @blur="handleBlurBreakDuration"
+            @reset-input="resetBreakDuration"
+          />
+          <div class="settings-buttons">
+            <button
+              class="settings-save settings-button"
+              @click="saveSettings"
+            >
+              Save
+            </button>
+            <button
+              class="settings-cancel settings-button"
+              @click="$emit('toggleSettingsForm')"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
-  </Transition>
+      </section>
+    </Transition>
+  </Teleport>
 </template>
 
 <style scope>

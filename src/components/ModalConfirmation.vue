@@ -26,45 +26,44 @@ const modalTitle = computed(() => pomodoro.isBreak
 </script>
 
 <template>
-  <Transition
-    :duration="250"
-    name="fly-in"
-  >
-    <div
-      v-if="isOpened"
-      class="modal-pseudo-container"
+  <Teleport to="body">
+    <Transition
+      :duration="250"
+      name="fly-in"
     >
-      <ModalBackground @click="$emit('toggleModal')"></ModalBackground>
-
-      <div class="modal-container">
-        <div class="icon-warning">
-          <Icon icon="material-symbols:exclamation-rounded"/>
-        </div>
-
-        <h3 class="modal-title">
-          {{ modalTitle }}
-        </h3>
-
-        <div class="modal-buttons">
-          <button
-            class="modal-button modal-button--confirm"
-            @click="() => {
-              $emit('reset')
-              $emit('toggleModal')
-            }"
-          >
-            Yes
-          </button>
-          <button
-            class="modal-button modal-button--cancel"
-            @click="$emit('toggleModal')"
-          >
-            Cancel
-          </button>
+      <div
+        v-if="isOpened"
+        class="modal-pseudo-container"
+      >
+        <ModalBackground @click="$emit('toggleModal')"></ModalBackground>
+        <div class="modal-container">
+          <div class="icon-warning">
+            <Icon icon="material-symbols:exclamation-rounded"/>
+          </div>
+          <h3 class="modal-title">
+            {{ modalTitle }}
+          </h3>
+          <div class="modal-buttons">
+            <button
+              class="modal-button modal-button--confirm"
+              @click="() => {
+                $emit('reset')
+                $emit('toggleModal')
+              }"
+            >
+              Yes
+            </button>
+            <button
+              class="modal-button modal-button--cancel"
+              @click="$emit('toggleModal')"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </Transition>
+    </Transition>
+  </Teleport>
 </template>
 
 <style scoped>

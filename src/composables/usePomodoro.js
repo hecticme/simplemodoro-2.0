@@ -129,6 +129,7 @@ export default function usePomodoro () {
 
     playNotificationSound()
     clearCountdownInterval()
+    isPaused.value = true
     pomodoro.setIsBreak(false)
 
     document.title = 'Simplemodoro'

@@ -26,7 +26,7 @@ const modalTitle = computed(() => pomodoro.isBreak
 </script>
 
 <template>
-  <Teleport to="body">
+  <Teleport to="#modal-container">
     <Transition
       :duration="250"
       name="fly-in"

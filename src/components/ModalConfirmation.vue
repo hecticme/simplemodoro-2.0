@@ -92,8 +92,8 @@ const modalTitle = computed(() => pomodoro.isBreak
 }
 
 /* Transition animation... */
-.fly-in-enter-active .modal-container,
-.fly-in-leave-active .modal-container {
+.fly-in-enter-active :is(.modal-container, .modal-background),
+.fly-in-leave-active :is(.modal-container, .modal-background) {
   transition-property: transform, opacity;
   transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
@@ -103,6 +103,11 @@ const modalTitle = computed(() => pomodoro.isBreak
 .fly-in-leave-to .modal-container {
   transform: translateY(20px);
   opacity: 0;
+}
+
+.fly-in-enter-from .modal-background,
+.fly-in-leave-to .modal-background {
+  opacity: 0%;
 }
 /* ...ends here. */
 

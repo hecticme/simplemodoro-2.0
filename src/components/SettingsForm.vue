@@ -161,8 +161,9 @@ function onAfterLeave () {
   z-index: 1;
 }
 
-.fly-in-enter-active .settings-form,
-.fly-in-leave-active .settings-form {
+/* Transition animation... */
+.fly-in-enter-active :is(.settings-form, .modal-background),
+.fly-in-leave-active :is(.settings-form, .modal-background) {
   transition-property: transform, opacity;
   transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
@@ -173,6 +174,12 @@ function onAfterLeave () {
   transform: translateY(20px);
   opacity: 0;
 }
+
+.fly-in-enter-from .modal-background,
+.fly-in-leave-to .modal-background {
+  opacity: 0%;
+}
+/* ...ends here. */
 
 .settings-buttons {
   align-self: center;

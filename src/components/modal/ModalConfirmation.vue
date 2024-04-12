@@ -1,17 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 // Import stores.
-import { usePomodoroStore } from '@/stores/pomodoro'
+import { usePomodoroStore } from '@/src/stores/pomodoro'
 // Import components.
 import { Icon } from '@iconify/vue'
-import ModalBackground from './ModalBackground.vue'
+import ModalBackground from '@/src/components/modal/ModalBackground.vue'
 
-defineProps({
-  isOpened: {
-    type: Boolean,
-    required: true,
-  },
-})
+defineProps<{
+  isOpened: boolean
+}>()
 
 defineEmits([
   'reset',
@@ -26,7 +23,7 @@ const modalTitle = computed(() => pomodoro.isBreak
 </script>
 
 <template>
-  <Teleport to="body">
+  <Teleport to="#modal-container">
     <Transition
       :duration="250"
       name="fly-in"
@@ -35,10 +32,10 @@ const modalTitle = computed(() => pomodoro.isBreak
         v-if="isOpened"
         class="modal-pseudo-container"
       >
-        <ModalBackground @click="$emit('toggleModal')"></ModalBackground>
+        <ModalBackground @click="$emit('toggleModal')" />
         <div class="modal-container">
           <div class="icon-warning">
-            <Icon icon="material-symbols:exclamation-rounded"/>
+            <Icon icon="material-symbols:exclamation-rounded" />
           </div>
           <h3 class="modal-title">
             {{ modalTitle }}
@@ -92,8 +89,8 @@ const modalTitle = computed(() => pomodoro.isBreak
 }
 
 /* Transition animation... */
-.fly-in-enter-active .modal-container,
-.fly-in-leave-active .modal-container {
+.fly-in-enter-active :is(.modal-container, .modal-background),
+.fly-in-leave-active :is(.modal-container, .modal-background) {
   transition-property: transform, opacity;
   transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
@@ -103,6 +100,11 @@ const modalTitle = computed(() => pomodoro.isBreak
 .fly-in-leave-to .modal-container {
   transform: translateY(20px);
   opacity: 0;
+}
+
+.fly-in-enter-from .modal-background,
+.fly-in-leave-to .modal-background {
+  opacity: 0%;
 }
 /* ...ends here. */
 

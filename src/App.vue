@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 // Import stores.
 import { useThemeStore } from './stores/theme'
 
 // Import components.
-import ThePomodoro from './components/ThePomodoro.vue'
-import TheHeader from './components/TheHeader.vue'
-import TheSettings from './components/TheSettings.vue'
+import ThePomodoro from '@/src/components/the/ThePomodoro.vue'
+import TheHeader from '@/src/components/the/TheHeader.vue'
+import TheSettings from '@/src/components/the/TheSettings.vue'
 
 const theme = useThemeStore()
 </script>

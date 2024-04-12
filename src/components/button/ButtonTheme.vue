@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 
 // Import components.
 import { Icon } from '@iconify/vue'
 
 // Import stores.
-import { useThemeStore } from '@/stores/theme'
+import { useThemeStore } from '@/src/stores/theme'
 
 const theme = useThemeStore()
 

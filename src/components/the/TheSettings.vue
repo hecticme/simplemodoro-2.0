@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 // Import components.
-import SettingsForm from './SettingsForm.vue'
-import SettingsButton from './SettingsButton.vue'
+import SettingsForm from '@/src/components/settings/SettingsForm.vue'
+import SettingsButton from '@/src/components/settings/SettingsButton.vue'
 
 const isOpen = ref(false)
 

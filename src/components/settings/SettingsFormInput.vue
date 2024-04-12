@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // Import components.
 import { Icon } from '@iconify/vue'
 
@@ -8,16 +8,10 @@ defineOptions({
 
 const model = defineModel()
 
-defineProps({
-  inputId: {
-    type: String,
-    required: true,
-  },
-  inputLabel: {
-    type: String,
-    required: true,
-  },
-})
+defineProps<{
+  inputId: string
+  inputLabel: string
+}>()
 
 defineEmits([
   'resetInput',
@@ -41,7 +35,7 @@ defineEmits([
         v-model="model"
         class="input-session"
         :name="inputId"
-      />
+      >
 
       <button
         class="button-input-reset"

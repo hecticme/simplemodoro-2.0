@@ -1,14 +1,10 @@
-<script setup>
+<script setup lang="ts">
 // Import components.
 import { Icon } from '@iconify/vue'
-import ButtonBase from './ButtonBase.vue'
-
-defineProps({
-  isOpen: {
-    type: Boolean,
-    required: true,
-  },
-})
+import BaseButton from '@/src/components/base/BaseButton.vue'
+defineProps<{
+  isOpen: boolean
+}>()
 
 defineEmits([
   'toggleSettingsForm',
@@ -16,7 +12,7 @@ defineEmits([
 </script>
 
 <template>
-  <ButtonBase
+  <BaseButton
     class="button-settings"
     @click="$emit('toggleSettingsForm')"
   >
@@ -30,7 +26,7 @@ defineEmits([
         icon="material-symbols:settings-rounded"
       />
     </div>
-  </ButtonBase>
+  </BaseButton>
 </template>
 
 <style scoped>

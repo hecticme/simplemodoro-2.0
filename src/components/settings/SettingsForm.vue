@@ -1,19 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 // Import stores.
-import { usePomodoroStore } from '@/stores/pomodoro'
+import { usePomodoroStore } from '@/src/stores/pomodoro'
 
 // Import components.
-import SettingsFormInput from './SettingsFormInput.vue'
-import ModalBackground from './ModalBackground.vue'
+import SettingsFormInput from '@/src/components/settings/SettingsFormInput.vue'
+import ModalBackground from '@/src/components/modal/ModalBackground.vue'
 
-defineProps({
-  isOpen: {
-    type: Boolean,
-    required: true,
-  },
-})
+defineProps<{
+  isOpen: boolean
+}>()
 
 const emit = defineEmits([
   'toggleSettingsForm',
@@ -25,11 +22,11 @@ const focusDuration = ref(pomodoro.focusDuration / 60)
 const breakDuration = ref(pomodoro.breakDuration / 60)
 
 function resetFocusDuration () {
-  focusDuration.value = pomodoro.defaultFocusDuration / 60
+  focusDuration.value = pomodoro.DEFAULT_FOCUS_DURATION / 60
 }
 
 function resetBreakDuration () {
-  breakDuration.value = pomodoro.defaultBreakDuration / 60
+  breakDuration.value = pomodoro.DEFAULT_BREAK_DURATION / 60
 }
 
 function saveSettings () {
@@ -40,37 +37,39 @@ function saveSettings () {
 }
 
 // Handle min and max value for sessions' duration.
-function handleBlurFocusDuration (event) {
-  const minValue = 10
-  const maxValue = 240
+function handleBlurFocusDuration (event: FocusEvent & {
+  target: HTMLInputElement
+}) {
+  const MIN_VALUE = 10
+  const MAX_VALUE = 240
 
-  const durationValue = event.target.value
+  const durationValue = Number(event.target.value)
 
-  if (durationValue < minValue) {
-    focusDuration.value = minValue
-
+  if (durationValue < MIN_VALUE) {
+    focusDuration.value = MIN_VALUE
     return
   }
 
-  if (durationValue > maxValue) {
-    focusDuration.value = maxValue
+  if (durationValue > MAX_VALUE) {
+    focusDuration.value = MAX_VALUE
   }
 }
 
-function handleBlurBreakDuration (event) {
-  const minValue = 1
-  const maxValue = 15
+function handleBlurBreakDuration (event: FocusEvent & {
+  target: HTMLInputElement
+}) {
+  const MIN_VALUE = 1
+  const MAX_VALUE = 15
 
-  const durationValue = event.target.value
+  const durationValue = Number(event.target.value)
 
-  if (durationValue < minValue) {
-    breakDuration.value = minValue
-
+  if (durationValue < MIN_VALUE) {
+    breakDuration.value = MIN_VALUE
     return
   }
 
-  if (durationValue > maxValue) {
-    breakDuration.value = maxValue
+  if (durationValue > MAX_VALUE) {
+    breakDuration.value = MAX_VALUE
   }
 }
 
@@ -87,7 +86,7 @@ function onAfterLeave () {
 </script>
 
 <template>
-  <Teleport to="body">
+  <Teleport to="#modal-container">
     <Transition
       :duration="250"
       name="fly-in"
@@ -98,7 +97,7 @@ function onAfterLeave () {
         class="settings-form-wrapper"
       >
         <!-- This component is for turning off the modal when clicking outside -->
-        <ModalBackground @click="$emit('toggleSettingsForm')"></ModalBackground>
+        <ModalBackground @click="$emit('toggleSettingsForm')" />
 
         <div class="settings-form">
           <SettingsFormInput
@@ -161,8 +160,9 @@ function onAfterLeave () {
   z-index: 1;
 }
 
-.fly-in-enter-active .settings-form,
-.fly-in-leave-active .settings-form {
+/* Transition animation... */
+.fly-in-enter-active :is(.settings-form, .modal-background),
+.fly-in-leave-active :is(.settings-form, .modal-background) {
   transition-property: transform, opacity;
   transition-duration: 250ms;
   transition-timing-function: var(--transition-cubic-bezier);
@@ -173,6 +173,12 @@ function onAfterLeave () {
   transform: translateY(20px);
   opacity: 0;
 }
+
+.fly-in-enter-from .modal-background,
+.fly-in-leave-to .modal-background {
+  opacity: 0%;
+}
+/* ...ends here. */
 
 .settings-buttons {
   align-self: center;

@@ -1,7 +1,12 @@
 {
   "name": "simplemodoro-2.0",
+  "author": "hecticme - Ngọc Minh",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
+  "keywords": [
+    "pomodoro",
+    "clock"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",

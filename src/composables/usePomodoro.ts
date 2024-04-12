@@ -1,6 +1,6 @@
 import { ref, watch, computed } from 'vue'
 import { usePomodoroStore } from '@/src/stores/pomodoro'
-import formatTime from '@/src/utils/formatTime'
+import { formatTime } from '@/src/utils/formatTime'
 
 export default function usePomodoro () {
   const pomodoro = usePomodoroStore()

@@ -1,19 +1,12 @@
 <script setup lang="ts">
 // Import components.
-import { Icon } from '@iconify/vue'
+import { Icon, type IconifyIcon } from '@iconify/vue'
 import ButtonBase from './ButtonBase.vue'
 
-defineProps({
-  icons: {
-    /** @type {import('vue').PropType<[string, string]>} */
-    type: Array,
-    required: true,
-  },
-  isActive: {
-    type: Boolean,
-    required: true,
-  },
-})
+defineProps<{
+  icons: Array<string | IconifyIcon>
+  isActive: boolean
+}>()
 </script>
 
 <template>

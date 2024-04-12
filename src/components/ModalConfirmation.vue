@@ -6,12 +6,9 @@ import { usePomodoroStore } from '@/stores/pomodoro'
 import { Icon } from '@iconify/vue'
 import ModalBackground from './ModalBackground.vue'
 
-defineProps({
-  isOpened: {
-    type: Boolean,
-    required: true,
-  },
-})
+defineProps<{
+  isOpened: boolean
+}>()
 
 defineEmits([
   'reset',

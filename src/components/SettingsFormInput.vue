@@ -8,16 +8,10 @@ defineOptions({
 
 const model = defineModel()
 
-defineProps({
-  inputId: {
-    type: String,
-    required: true,
-  },
-  inputLabel: {
-    type: String,
-    required: true,
-  },
-})
+defineProps<{
+  inputId: string
+  inputLabel: string
+}>()
 
 defineEmits([
   'resetInput',

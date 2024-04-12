@@ -3,12 +3,9 @@
 import { Icon } from '@iconify/vue'
 import ButtonBase from './ButtonBase.vue'
 
-defineProps({
-  isOpen: {
-    type: Boolean,
-    required: true,
-  },
-})
+defineProps<{
+  isOpen: boolean
+}>()
 
 defineEmits([
   'toggleSettingsForm',

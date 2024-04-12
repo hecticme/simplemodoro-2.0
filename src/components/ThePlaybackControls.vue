@@ -6,16 +6,10 @@ import ModalConfirmation from './ModalConfirmation.vue'
 // Import stores.
 import { usePomodoroStore } from '@/stores/pomodoro'
 
-const props = defineProps({
-  isPaused: {
-    type: Boolean,
-    required: true,
-  },
-  hasStarted: {
-    type: Boolean,
-    required: true,
-  },
-})
+const props = defineProps<{
+  isPaused: boolean
+  hasStarted: boolean
+}>()
 
 const emit = defineEmits([
   'resume',

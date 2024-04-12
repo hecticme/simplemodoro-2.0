@@ -8,12 +8,9 @@ import { usePomodoroStore } from '@/stores/pomodoro'
 import SettingsFormInput from './SettingsFormInput.vue'
 import ModalBackground from './ModalBackground.vue'
 
-defineProps({
-  isOpen: {
-    type: Boolean,
-    required: true,
-  },
-})
+defineProps<{
+  isOpen: boolean
+}>()
 
 const emit = defineEmits([
   'toggleSettingsForm',

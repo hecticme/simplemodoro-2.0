@@ -12,11 +12,7 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
   const focusDuration = ref(Number(localFocusDuration) || defaultFocusDuration)
   const breakDuration = ref(Number(localBreakDuration) || defaultBreakDuration)
 
-  /**
-   * @param {number} duration - Focus session duration.
-   * @returns {void}
-   */
-  function setFocusDuration (duration) {
+  function setFocusDuration (duration: number) {
     focusDuration.value = duration
 
     if (duration === defaultFocusDuration) {
@@ -25,14 +21,10 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
       return
     }
 
-    localStorage.setItem('focusDuration', focusDuration.value)
+    localStorage.setItem('focusDuration', JSON.stringify(focusDuration.value))
   }
 
-  /**
-   * @param {number} duration - Break session duration.
-   * @returns {void}
-   */
-  function setBreakDuration (duration) {
+  function setBreakDuration (duration: number) {
     breakDuration.value = duration
 
     if (duration === defaultBreakDuration) {
@@ -41,16 +33,13 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
       return
     }
 
-    localStorage.setItem('breakDuration', breakDuration.value)
+    localStorage.setItem('breakDuration', JSON.stringify(breakDuration.value))
   }
 
   // Pomodoro's session state.
   const isBreak = ref(false)
 
-  /**
-   * @param {boolean} state - A boolean value to know if it is break session.
-   */
-  function setIsBreak (state) {
+  function setIsBreak (state: boolean) {
     isBreak.value = state
   }
 

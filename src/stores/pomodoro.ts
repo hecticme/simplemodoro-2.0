@@ -3,18 +3,18 @@ import { defineStore } from 'pinia'
 
 export const usePomodoroStore = defineStore('pomodoro', () => {
   // Session durations
-  const defaultFocusDuration = 25 * 60
-  const defaultBreakDuration = 5 * 60
+  const DEFAULT_FOCUS_DURATION = 25 * 60
+  const DEFAULT_BREAK_DURATION = 5 * 60
   const localFocusDuration = localStorage.getItem('focusDuration')
   const localBreakDuration = localStorage.getItem('breakDuration')
 
-  const focusDuration = ref(Number(localFocusDuration) || defaultFocusDuration)
-  const breakDuration = ref(Number(localBreakDuration) || defaultBreakDuration)
+  const focusDuration = ref(Number(localFocusDuration) || DEFAULT_FOCUS_DURATION)
+  const breakDuration = ref(Number(localBreakDuration) || DEFAULT_BREAK_DURATION)
 
   function setFocusDuration (duration: number) {
     focusDuration.value = duration
 
-    if (duration === defaultFocusDuration) {
+    if (duration === DEFAULT_FOCUS_DURATION) {
       localStorage.removeItem('focusDuration')
       return
     }
@@ -25,7 +25,7 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
   function setBreakDuration (duration: number) {
     breakDuration.value = duration
 
-    if (duration === defaultBreakDuration) {
+    if (duration === DEFAULT_BREAK_DURATION) {
       localStorage.removeItem('breakDuration')
       return
     }
@@ -43,8 +43,8 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
   return {
     focusDuration,
     breakDuration,
-    defaultFocusDuration,
-    defaultBreakDuration,
+    DEFAULT_FOCUS_DURATION,
+    DEFAULT_BREAK_DURATION,
     setFocusDuration,
     setBreakDuration,
     isBreak,

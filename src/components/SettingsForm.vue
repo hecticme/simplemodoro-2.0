@@ -22,11 +22,11 @@ const focusDuration = ref(pomodoro.focusDuration / 60)
 const breakDuration = ref(pomodoro.breakDuration / 60)
 
 function resetFocusDuration () {
-  focusDuration.value = pomodoro.defaultFocusDuration / 60
+  focusDuration.value = pomodoro.DEFAULT_FOCUS_DURATION / 60
 }
 
 function resetBreakDuration () {
-  breakDuration.value = pomodoro.defaultBreakDuration / 60
+  breakDuration.value = pomodoro.DEFAULT_BREAK_DURATION / 60
 }
 
 function saveSettings () {

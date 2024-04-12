@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 // Import stores.
-import { usePomodoroStore } from '@/stores/pomodoro'
+import { usePomodoroStore } from '@/src/stores/pomodoro'
 // Import components.
 import { Icon } from '@iconify/vue'
-import ModalBackground from '@/components/modal/ModalBackground.vue'
+import ModalBackground from '@/src/components/modal/ModalBackground.vue'
 
 defineProps<{
   isOpened: boolean

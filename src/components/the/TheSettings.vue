@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 
 // Import components.
-import SettingsForm from '@/components/settings/SettingsForm.vue'
-import SettingsButton from '@/components/settings/SettingsButton.vue'
+import SettingsForm from '@/src/components/settings/SettingsForm.vue'
+import SettingsButton from '@/src/components/settings/SettingsButton.vue'
 
 const isOpen = ref(false)
 

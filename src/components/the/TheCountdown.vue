@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import formatTime from '@/utils/formatTime'
+import formatTime from '@/src/utils/formatTime'
 
 const props = defineProps<{
   timeLeft: number

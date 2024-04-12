@@ -5,7 +5,7 @@ import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
 
 // Import stores.
-import { useThemeStore } from '@/stores/theme'
+import { useThemeStore } from '@/src/stores/theme'
 
 const theme = useThemeStore()
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ButtonTheme from '@/components/button/ButtonTheme.vue'
-import LinkGithub from '@/components/LinkGithub.vue'
+import ButtonTheme from '@/src/components/button/ButtonTheme.vue'
+import LinkGithub from '@/src/components/LinkGithub.vue'
 </script>
 
 <template>

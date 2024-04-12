@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Import components.
 import { Icon, type IconifyIcon } from '@iconify/vue'
-import ButtonBase from '@/components/button/ButtonBase.vue'
+import ButtonBase from '@/src/components/button/ButtonBase.vue'
 
 defineProps<{
   icons: Array<string | IconifyIcon>

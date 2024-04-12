@@ -41,7 +41,7 @@ defineEmits([
         v-model="model"
         class="input-session"
         :name="inputId"
-      />
+      >
 
       <button
         class="button-input-reset"

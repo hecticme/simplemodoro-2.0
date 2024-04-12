@@ -35,10 +35,10 @@ const modalTitle = computed(() => pomodoro.isBreak
         v-if="isOpened"
         class="modal-pseudo-container"
       >
-        <ModalBackground @click="$emit('toggleModal')"></ModalBackground>
+        <ModalBackground @click="$emit('toggleModal')" />
         <div class="modal-container">
           <div class="icon-warning">
-            <Icon icon="material-symbols:exclamation-rounded"/>
+            <Icon icon="material-symbols:exclamation-rounded" />
           </div>
           <h3 class="modal-title">
             {{ modalTitle }}

@@ -98,7 +98,7 @@ function onAfterLeave () {
         class="settings-form-wrapper"
       >
         <!-- This component is for turning off the modal when clicking outside -->
-        <ModalBackground @click="$emit('toggleSettingsForm')"></ModalBackground>
+        <ModalBackground @click="$emit('toggleSettingsForm')" />
 
         <div class="settings-form">
           <SettingsFormInput

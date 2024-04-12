@@ -5,7 +5,9 @@ import LinkGithub from './LinkGithub.vue'
 
 <template>
   <header class="header">
-    <p class="logo-text">Simplemodoro.</p>
+    <p class="logo-text">
+      Simplemodoro.
+    </p>
 
     <div class="header-utils">
       <ButtonTheme />

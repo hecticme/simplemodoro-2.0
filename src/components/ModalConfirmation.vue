@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 // Import stores.
 import { usePomodoroStore } from '@/stores/pomodoro'

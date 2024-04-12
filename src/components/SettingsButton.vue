@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // Import components.
 import { Icon } from '@iconify/vue'
 import ButtonBase from './ButtonBase.vue'

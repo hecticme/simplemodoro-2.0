@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // Import stores.
 import { useThemeStore } from './stores/theme'
 

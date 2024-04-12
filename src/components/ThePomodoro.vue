@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // Import composables.
 import usePomodoro from '@/composables/usePomodoro'
 

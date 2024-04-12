@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import ButtonTheme from './ButtonTheme.vue'
 import LinkGithub from './LinkGithub.vue'
 </script>

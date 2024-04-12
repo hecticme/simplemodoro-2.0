@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 // Import components.
-import ButtonPlaybackControl from './ButtonPlaybackControl.vue'
+import ButtonPlaybackControl from './button/ButtonPlaybackControl.vue'
 import ModalConfirmation from './ModalConfirmation.vue'
 // Import stores.
 import { usePomodoroStore } from '@/stores/pomodoro'

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Import components.
 import { Icon } from '@iconify/vue'
-import ButtonBase from './ButtonBase.vue'
+import ButtonBase from './button/ButtonBase.vue'
 
 defineProps<{
   isOpen: boolean

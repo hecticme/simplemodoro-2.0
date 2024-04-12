@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ButtonTheme from './ButtonTheme.vue'
+import ButtonTheme from './button/ButtonTheme.vue'
 import LinkGithub from './LinkGithub.vue'
 </script>
 

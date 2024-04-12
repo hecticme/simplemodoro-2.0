@@ -6,13 +6,13 @@ export default function usePomodoro () {
   const pomodoro = usePomodoroStore()
 
   /** The countdown interval id used when there's no Web Worker. */
-  const intervalId = ref(null)
+  const intervalId = ref<number | null>(null)
   /** Remaining time value to be displayed. Default to focus duration. */
   const timeLeft = ref(pomodoro.focusDuration)
   /** Remaining time value for the next countdown after paused. */
   const timeLeftMark = ref(pomodoro.focusDuration)
   /** The timestamp when the resume button was pressed. Used to calculate elapsed time. */
-  const resumeTime = ref(null)
+  const resumeTime = ref<number | null>(null)
 
   const isPaused = ref(true)
   const hasStarted = computed(() =>
@@ -48,13 +48,14 @@ export default function usePomodoro () {
   )
 
   // Web worker to avoid throttling. Use it set interval if the browser supports it.
-  const hasWebWorker = Boolean(window.Worker)
-  const countdownWorker = hasWebWorker
+  const countdownWorker = window.Worker
     ? new Worker(new URL('@/workers/countdownWorker', import.meta.url))
     : null
 
-  countdownWorker.onmessage = () => {
-    countdownTick()
+  if (countdownWorker) {
+    countdownWorker.onmessage = () => {
+      countdownTick()
+    }
   }
 
   // Playback functions.
@@ -62,7 +63,7 @@ export default function usePomodoro () {
     isPaused.value = false
     resumeTime.value = Date.now()
 
-    if (hasWebWorker) {
+    if (countdownWorker) {
       countdownWorker.postMessage('start')
     } else {
       intervalId.value = setInterval(countdownTick, 500)
@@ -90,16 +91,19 @@ export default function usePomodoro () {
 
   // Reusable functions specific to this composable.
   function clearCountdownInterval () {
-    if (hasWebWorker) {
+    if (countdownWorker) {
       countdownWorker.postMessage('clear')
-    } else {
+      return
+    }
+
+    if (intervalId.value) {
       clearInterval(intervalId.value)
       intervalId.value = null
     }
   }
 
   function countdownTick () {
-    const timePassed = (Date.now() - resumeTime.value) / 1000
+    const timePassed = resumeTime.value ? (Date.now() - resumeTime.value) / 1000 : 0
     const remainingTime = Math.ceil(timeLeftMark.value - timePassed)
 
     if (remainingTime >= 0) {

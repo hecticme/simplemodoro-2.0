@@ -1,8 +1,7 @@
 <script setup lang="ts">
 // Import components.
 import { Icon, type IconifyIcon } from '@iconify/vue'
-import ButtonBase from '@/src/components/button/ButtonBase.vue'
-
+import BaseButton from '@/src/components/base/BaseButton.vue'
 defineProps<{
   icons: Array<string | IconifyIcon>
   isActive: boolean
@@ -10,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <ButtonBase class="playback-button">
+  <BaseButton class="playback-button">
     <div class="playback-icon-anchor">
       <div
         class="playback-icon-wrapper"
@@ -26,7 +25,7 @@ defineProps<{
         />
       </div>
     </div>
-  </ButtonBase>
+  </BaseButton>
 </template>
 
 <style scoped>

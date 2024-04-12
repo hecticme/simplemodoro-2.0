@@ -1,7 +1,7 @@
 /**
  * Add '0' to the start of single digits.
  */
-function normalizedTimeUnit (time: number) {
+export function normalizedTimeUnit (time: number) {
   return time.toString().padStart(2, '0')
 }
 

@@ -4,7 +4,7 @@ import { computed } from 'vue'
 import { usePomodoroStore } from '@/stores/pomodoro'
 // Import components.
 import { Icon } from '@iconify/vue'
-import ModalBackground from './ModalBackground.vue'
+import ModalBackground from '@/components/modal/ModalBackground.vue'
 
 defineProps<{
   isOpened: boolean

@@ -5,8 +5,8 @@ import { ref } from 'vue'
 import { usePomodoroStore } from '@/stores/pomodoro'
 
 // Import components.
-import SettingsFormInput from './SettingsFormInput.vue'
-import ModalBackground from './ModalBackground.vue'
+import SettingsFormInput from '@/components/settings/SettingsFormInput.vue'
+import ModalBackground from '@/components/modal/ModalBackground.vue'
 
 defineProps<{
   isOpen: boolean

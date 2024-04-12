@@ -3,8 +3,8 @@
 import usePomodoro from '@/composables/usePomodoro'
 
 // Import components.
-import TheCountdown from './TheCountdown.vue'
-import ThePlaybackControls from './ThePlaybackControls.vue'
+import TheCountdown from '@/components/the/TheCountdown.vue'
+import ThePlaybackControls from '@/components/the/ThePlaybackControls.vue'
 
 const {
   timeLeft,

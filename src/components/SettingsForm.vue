@@ -37,11 +37,13 @@ function saveSettings () {
 }
 
 // Handle min and max value for sessions' duration.
-function handleBlurFocusDuration (event) {
+function handleBlurFocusDuration (event: FocusEvent & {
+  target: HTMLInputElement
+}) {
   const MIN_VALUE = 10
   const MAX_VALUE = 240
 
-  const durationValue = event.target.value
+  const durationValue = Number(event.target.value)
 
   if (durationValue < MIN_VALUE) {
     focusDuration.value = MIN_VALUE
@@ -53,11 +55,13 @@ function handleBlurFocusDuration (event) {
   }
 }
 
-function handleBlurBreakDuration (event) {
+function handleBlurBreakDuration (event: FocusEvent & {
+  target: HTMLInputElement
+}) {
   const MIN_VALUE = 1
   const MAX_VALUE = 15
 
-  const durationValue = event.target.value
+  const durationValue = Number(event.target.value)
 
   if (durationValue < MIN_VALUE) {
     breakDuration.value = MIN_VALUE

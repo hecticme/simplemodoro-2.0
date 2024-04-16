@@ -6,7 +6,7 @@ defineOptions({
   inheritAttrs: false,
 })
 
-const model = defineModel({ required: true })
+const model = defineModel<string>({ required: true })
 
 defineProps<{
   inputId: string

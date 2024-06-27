@@ -1,6 +1,6 @@
 import { ref, watch, computed } from 'vue'
-import { usePomodoroStore } from '@/src/stores/pomodoro'
-import { formatTime } from '@/src/utils/formatTime'
+import { usePomodoroStore } from '~/stores/pomodoro'
+import { formatTime } from '~/utils/formatTime'
 
 export default function usePomodoro () {
   const pomodoro = usePomodoroStore()
@@ -49,7 +49,7 @@ export default function usePomodoro () {
 
   // Web worker to avoid throttling. Use it set interval if the browser supports it.
   const countdownWorker = window.Worker
-    ? new Worker(new URL('@/src/workers/countdownWorker', import.meta.url))
+    ? new Worker(new URL('~/workers/countdownWorker', import.meta.url))
     : null
 
   if (countdownWorker) {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 // Import composables.
-import usePomodoro from '@/src/composables/usePomodoro'
+import usePomodoro from '~/composables/usePomodoro'
 
 // Import components.
-import TheCountdown from '@/src/components/the/TheCountdown.vue'
-import ThePlaybackControls from '@/src/components/the/ThePlaybackControls.vue'
+import TheCountdown from '~/components/the/TheCountdown.vue'
+import ThePlaybackControls from '~/components/the/ThePlaybackControls.vue'
 
 const {
   timeLeft,

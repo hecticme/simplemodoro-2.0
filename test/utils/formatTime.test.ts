@@ -1,5 +1,5 @@
 import { test, expect, describe } from 'vitest'
-import { formatTime, normalizedTimeUnit } from '@/src/utils/formatTime'
+import { formatTime, normalizedTimeUnit } from '~/utils/formatTime'
 
 describe('normalizedTimeUnit', () => {
   test('Pad single digit with "0"', () => {

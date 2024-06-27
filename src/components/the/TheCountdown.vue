@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { formatTime } from '@/src/utils/formatTime'
-import { usePomodoroStore } from '@/src/stores/pomodoro'
+import { formatTime } from '~/utils/formatTime'
+import { usePomodoroStore } from '~/stores/pomodoro'
 
 const props = defineProps<{
   timeLeft: number

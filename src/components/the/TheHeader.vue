@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ButtonTheme from '@/src/components/button/ButtonTheme.vue'
-import LinkGithub from '@/src/components/LinkGithub.vue'
-import { usePomodoroStore } from '@/src/stores/pomodoro'
+import ButtonTheme from '~/components/button/ButtonTheme.vue'
+import LinkGithub from '~/components/LinkGithub.vue'
+import { usePomodoroStore } from '~/stores/pomodoro'
 
 const pomodoro = usePomodoroStore()
 </script>

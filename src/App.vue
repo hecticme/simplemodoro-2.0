@@ -3,9 +3,9 @@
 import { useThemeStore } from './stores/theme'
 
 // Import components.
-import ThePomodoro from '@/src/components/the/ThePomodoro.vue'
-import TheHeader from '@/src/components/the/TheHeader.vue'
-import TheSettings from '@/src/components/the/TheSettings.vue'
+import ThePomodoro from '~/components/the/ThePomodoro.vue'
+import TheHeader from '~/components/the/TheHeader.vue'
+import TheSettings from '~/components/the/TheSettings.vue'
 
 const theme = useThemeStore()
 </script>

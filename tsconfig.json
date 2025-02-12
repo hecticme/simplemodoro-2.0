@@ -11,12 +11,12 @@
     "strict": true,
     "allowJs": true,
     "paths": {
-      "@/*": ["./*"]
+      "~/*": ["./src/*"]
     }
   },
   "include": [
     "src/**/*",
-    "tests/**/*"
+    "test/**/*"
   ],
   "exclude": ["node_modules", "dist"]
 }

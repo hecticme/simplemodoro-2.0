@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 // Import components.
-import ButtonPlaybackControl from '@/src/components/button/ButtonPlaybackControl.vue'
-import ModalConfirmation from '@/src/components/modal/ModalConfirmation.vue'
+import ButtonPlaybackControl from '~/components/button/ButtonPlaybackControl.vue'
+import ModalConfirmation from '~/components/modal/ModalConfirmation.vue'
 // Import stores.
-import { usePomodoroStore } from '@/src/stores/pomodoro'
+import { usePomodoroStore } from '~/stores/pomodoro'
 
 const props = defineProps<{
   isPaused: boolean

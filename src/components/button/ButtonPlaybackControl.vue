@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Import components.
 import { Icon, type IconifyIcon } from '@iconify/vue'
-import BaseButton from '@/src/components/base/BaseButton.vue'
+import BaseButton from '~/components/base/BaseButton.vue'
 defineProps<{
   icons: Array<string | IconifyIcon>
   isActive: boolean

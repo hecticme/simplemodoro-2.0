@@ -1,6 +1,6 @@
 import { ref, watch, computed } from 'vue'
-import { usePomodoroStore } from '@/src/stores/pomodoro'
-import { formatTime } from '@/src/utils/formatTime'
+import { usePomodoroStore } from '~/stores/pomodoro'
+import { formatTime } from '~/utils/formatTime'
 
 export default function usePomodoro () {
   const pomodoro = usePomodoroStore()
@@ -49,7 +49,7 @@ export default function usePomodoro () {
 
   // Web worker to avoid throttling. Use it set interval if the browser supports it.
   const countdownWorker = window.Worker
-    ? new Worker(new URL('@/src/workers/countdownWorker', import.meta.url))
+    ? new Worker(new URL('~/workers/countdownWorker', import.meta.url))
     : null
 
   if (countdownWorker) {
@@ -61,7 +61,7 @@ export default function usePomodoro () {
   // Playback functions.
   function resume () {
     isPaused.value = false
-    resumeTime.value = Date.now()
+    resumeTime.value = performance.now()
 
     if (countdownWorker) {
       countdownWorker.postMessage('start')
@@ -103,7 +103,7 @@ export default function usePomodoro () {
   }
 
   function countdownTick () {
-    const timePassed = resumeTime.value ? (Date.now() - resumeTime.value) / 1000 : 0
+    const timePassed = resumeTime.value ? (performance.now() - resumeTime.value) / 1000 : 0
     const remainingTime = Math.ceil(timeLeftMark.value - timePassed)
 
     if (remainingTime >= 0) {
@@ -118,7 +118,7 @@ export default function usePomodoro () {
     if (!pomodoro.isBreak) {
       timeLeft.value = pomodoro.breakDuration
       timeLeftMark.value = pomodoro.breakDuration
-      resumeTime.value = Date.now()
+      resumeTime.value = performance.now()
 
       playNotificationSound()
       pomodoro.setIsBreak(true)

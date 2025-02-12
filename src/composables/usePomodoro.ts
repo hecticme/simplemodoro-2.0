@@ -61,7 +61,7 @@ export default function usePomodoro () {
   // Playback functions.
   function resume () {
     isPaused.value = false
-    resumeTime.value = Date.now()
+    resumeTime.value = performance.now()
 
     if (countdownWorker) {
       countdownWorker.postMessage('start')
@@ -103,7 +103,7 @@ export default function usePomodoro () {
   }
 
   function countdownTick () {
-    const timePassed = resumeTime.value ? (Date.now() - resumeTime.value) / 1000 : 0
+    const timePassed = resumeTime.value ? (performance.now() - resumeTime.value) / 1000 : 0
     const remainingTime = Math.ceil(timeLeftMark.value - timePassed)
 
     if (remainingTime >= 0) {
@@ -118,7 +118,7 @@ export default function usePomodoro () {
     if (!pomodoro.isBreak) {
       timeLeft.value = pomodoro.breakDuration
       timeLeftMark.value = pomodoro.breakDuration
-      resumeTime.value = Date.now()
+      resumeTime.value = performance.now()
 
       playNotificationSound()
       pomodoro.setIsBreak(true)
